@@ -7,37 +7,40 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" type="text/javascript"></script>
         <script src="prod/js/zepto.min.js" type="text/javascript"></script>
         <script src="prod/js/resume.js" type="text/javascript"></script>
+        <script src="prod/js/logic.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="prod/css/style.css">
         <link href='https://fonts.googleapis.com/css?family=Cantata+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" type="text/css" />
     </head>
     <body>
         <script type="text/javascript">
-            var dom = {};
-            var show = false;
-            var moreMsg = "more";
-            var lessMsg = "less";
-            
             function Init () {
-                /*global $*/
+                var dom = {};
                 dom.overlay = $(".overlay");
                 dom.outer = $('.outer');
                 dom.toggle = $('.toggleBtn');
+
+                dom.shown = false;
+                dom.moreMsg = "show more";
+                dom.lessMsg = "show less";
                 
-                dom.overlay.anim({opacity: '0'},0.5,'linear',function() {dom.overlay.remove();});
+                dom.overlay.anim({
+                  opacity: '0'},0.5,'linear',function() {
+                    dom.overlay.remove();
+                  });
                 dom.outer.hide();
                 
                 dom.toggle.each(function(){
-                    $(this).text(moreMsg);
+                    $(this).text(dom.moreMsg);
                     $(this).siblings().hide();
                     $(this).bind('click',function(){
                         $(this).siblings().slideToggle();
-                        if(!show){
-                            $(this).text(lessMsg);
-                            show=true;
+                        if(!dom.shown){
+                            $(this).text(dom.lessMsg);
+                            dom.shown=true;
                         }else{
-                            $(this).text(moreMsg);
-                            show=false;
+                            $(this).text(dom.moreMsg);
+                            dom.shown=false;
                         }
                     });
                 });
@@ -48,34 +51,30 @@
         <div class="overlay"></div>
         
         <div class="wrapper clearfix">
-        <div class="left">
+          <div class="left" ng-controller="leftController as left">
             <div class="name-hero">
               <div class="me-img"></div>
               <div class="name-text">
-                <h1>Manuel A.<em> Reyes Q.</em></h1>
-                <p>Sarmiento 4371, Capital Federal</p>
-                <p>Buenos Aires, Argentina</p>
-                <p>yoggsoft@gmail.com</p> 
-                <div class="contact-icons">
-                    <ul>
-                        <li>
-                            <i class="fa fa-github large" aria-hidden="true"></i>
-                        </li>
-                        <li>
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                        </li>
-                    </ul>
+                <h1>Manuel<em> Reyes</em></h1>
+                <div class="contact-info">
+                  <p>Buenos Aires, Argentina</p>
+                  <p>yoggsoft@gmail.com</p>
+                  <div class="contact-icons">
+                    <a ng-repeat="e in left.icons" href="{{e.path}}" target="blank">
+                      <i class="{{e.icon}}" aria-hidden="true"></i>  
+                    </a>
+                  </div>  
                 </div>
               </div>
             </div>
           </div>
-        <div class="right" ng-controller = "rightController as controller">
+          <div class="right" ng-controller = "rightController as right">
             <div class="inner">
-                <section>
-                    <h1>About me</h1>
-                    <p>I'm a <i>Spanish</i> dude born and raised in <i>Venezuela</i>, living in <i>Argentina</i> working for worldwide clients. Cool, huh?</p>
-                </section>
-                <section>
+              <section>
+                  <h1>About me</h1>
+                  <p>I'm a <i>Spanish</i> dude born and raised in <i>Venezuela</i>, living in <i>Argentina</i> working for worldwide clients. Cool, huh?</p>
+              </section>
+              <section>
                   <h1>XP</h1>
 
                   <p><em>Google Creative Ads Support Specialist</em>  |  Jan 2016 - present</p>
@@ -87,7 +86,7 @@
                   <p><em>Google Technical Support Specialist</em>  |  Jul 2013 - Jan 2015</p>
                   <p>Doing cool stuff.</p>
                   
-                <div class="hidden">
+                  <div class="hidden">
                   <div class="hiddable">
                   <p><em>W3 Digital Agency., Content Manager / Developer</em>  |  June 2013 - July 2013</p>
                   <p>Team provide support creating digital content for 
@@ -113,7 +112,9 @@
                           <p>At Evenpro, I had the chance to translate logistic and functional orders from U.S. Staff to locals 
                               building the show <i>Disney Live - Winnie The Pooh</i>.</p>
                       </div>
-                      <a class="toggleBtn"></a>
+                      <div class="toggleBtn" toggle-button>
+                        <i class="fa fa-chevron-up"></i>
+                      </div>
                   </div>
                 </section>
                 <section>
@@ -123,7 +124,7 @@
                     <p><em>Thesis degree with Honors and Publication Mention</em></p>
                     <p>May 2010 - January 2011  | DESARROLLO DE SOFTWARE EDUCATIVO Y DIDÁCTICO PARA NIÑOS ENTRE PRIMERO Y SEXTO GRADO DE EDUCACIÓN BÁSICA BAJO PLATAFORMA WEB 2.0</p>
                 </section>
-                <section ng-repeat = "e in controller.skills">
+                <section ng-repeat = "e in right.skills">
                     <h1>{{e.label}}</h1>
                     <ul class="skill-set">
                         <li ng-repeat = "f in e.data">{{f}}</li>
@@ -144,7 +145,9 @@
                           <p>Food | <em>Arepas</em>.</p>
                           <p>TV | <em>The Simpsons</em>.</p>
                       </div>
-                      <a class="toggleBtn"></a>
+                      <div class="toggleBtn" toggle-button>
+                        <i class="fa fa-chevron-up"></i>
+                      </div>
                   </div>
                 </section>
             </div>

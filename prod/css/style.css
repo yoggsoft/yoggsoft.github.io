@@ -6,17 +6,8 @@
     Description:
         Styles for cool resume.
 */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    width: 100%;
-    height: 100%;
-    z-index: 9;
-}
-
-root { 
+root
+{ 
     display: block;
 }
 
@@ -37,9 +28,35 @@ body
 	font-weight:400;
 	line-height:1.4;
 	text-rendering:optimizeLegibility;
-        width:100%;
-        height:100%;
-        margin: 0 auto;
+    width:100%;
+    height:100%;
+    margin: 0 auto;
+    overflow-x:hidden;
+}
+
+ul
+{
+	list-style-type:none;
+	margin-top:-10px;
+	max-width:570px;
+	padding:0;
+	cursor: default;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+.overlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
 }
 
 .skill-set li:hover
@@ -58,11 +75,10 @@ body
 	border-right:1px solid rgba(0,0,0,.05);
 	float:right;
 	height:100%;
-	/*margin-left:-10px;*/
 	min-width:200px;
 	position:fixed;
 	width:33.33%;
-        max-width: 550px;
+    max-width: 550px;
 	top:0px;
 }
 
@@ -90,7 +106,6 @@ body
 .me-img
 {
 	background:url(../img/mreyes_2013.jpg) no-repeat center center ;
-	/*background-size:200%;*/
 	border-radius:100%;
 	height:150px;
 	margin:0 auto;
@@ -167,7 +182,6 @@ body
 	max-height:900px;
 	padding:3em;
 	text-align: justify;
-	
 }
 
 .outer h1
@@ -194,14 +208,6 @@ body
         overflow: hidden;
 }
 
-ul
-{
-	list-style-type:none;
-	margin-top:-10px;
-	max-width:570px;
-	padding:0;
-	cursor: default;
-}
 .skill-set li
 {
 	font-size:95%;
@@ -221,26 +227,6 @@ ul
 	overflow:hidden;
 }
 
-@media screen and (max-width: 48em) {
-	.right,.left{
-	    float:none;
-	    position:relative;
-	    width:100%;
-	    min-height:500px;
-    }
-    .me-img{
-    	display: none;
-    }
-	
-
-}
-@media screen and (max-width: 75em) {
-    body { font-size:16px;}
-}
-
-@media screen and (max-width: 60em) {
-    body { font-size:14px;}
-}
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
    visibility: hidden;
@@ -248,35 +234,41 @@ ul
    height: 0;
    clear: both;
 }
-/********************************************/
+
 #canvas{ 
     border: 1px solid #dedede;
     position:relative;
     margin:0px auto;
     cursor:crosshair;
-	
 }
+
 .hint{
     position:fixed;
 }
-/********************************************/
+
 .hidden{
     display: block;
     margin-top: -20px;
 }
 
 .toggleBtn{
+	position:relative;
     display:block;
     color:rgb(0,0,0);
     color:rgba(0,0,0,.75);
     cursor: pointer;
     padding-top: 10px;
-    width: 50px;
+    width: 100%;
+    clear:none;
+    margin-top:3em;
+    border-top: 1px solid #eee;
+    text-align: center;
 }
+
 .toggleBtn:hover{
     color:#126ee0;
 }
-/********************************************/
+
 .coolView{
     background:rgba(0,0,0,.75);
     border-radius:5px;
@@ -288,9 +280,11 @@ ul
     text-align:justify;
     cursor: pointer;
 }
+
 .coolView:hover{
     background:#126ee0;
 }
+
 .mobileMe{
     background: url(../img/mobileMe.png) no-repeat center center;
     width:312px;
@@ -298,9 +292,49 @@ ul
 }
 
 .contact-icons{
-	width:300px;
+	position: relative;
 	margin:0 auto;
+	clear:none;
+	padding: 20px;
 }
-a {
+
+.contact-info {
+	display:block;
+	padding: 10px;
+	text-align: center;
+}
+
+.contact-info a {
 	text-decoration: none;
+	cursor: pointer;
+	padding: 5px;
+	color:#333;
+}
+
+@media screen and (max-width: 33em) {
+	.right,.left {
+		min-height: 15em;
+	}
+	.me-img{
+    	display: none;
+    }
+}
+
+@media screen and (max-width: 48em) {
+	body { font-size:12px;}
+	.right,.left{
+	    float:none;
+	    position:relative;
+	    min-width:100%;
+	    min-height:30em;
+	    clear:none;
+    }
+}
+
+@media screen and (max-width: 75em) {
+    body { font-size:16px;}
+}
+
+@media screen and (max-width: 60em) {
+    body { font-size:14px;}
 }

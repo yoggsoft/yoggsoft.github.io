@@ -2,6 +2,26 @@
 'use strict';
 var resume = angular.module('resume',[]);
 
+resume.controller('mainController',['$scope',function($scope){
+    $scope.dom = {};
+    this.moreMsg = "show more";
+    this.lessMsg = "show less";
+    this.shown = false;
+}]);
+
+resume.controller('leftController',['$scope',function($scope){
+    this.icons = {
+        github:{
+            icon:"fa fa-github fa-2x",
+            path:"https://www.github.com/yoggsoft"
+        },
+        linkedin:{
+            icon:"fa fa-linkedin fa-2x",
+            path:"https://ar.linkedin.com/in/querales"
+        },
+    }
+}]);
+
 resume.controller('rightController', ['$scope', function($scope) {
     this.skills = {
         techskills: {
@@ -36,3 +56,27 @@ resume.controller('rightController', ['$scope', function($scope) {
     };
 }]);
 
+resume.directive('toggleButton',function(){
+    var expanded = false;
+    var toggle = function(e){
+        if (expanded === false){
+            e.parentNode.style.display="block";
+
+            expanded = true;
+        }else{
+            // e.style.display="none";
+            expanded = false;
+        }
+    }
+
+    return{
+        restrict:'A',
+        link:function(scope,el,attr){
+            var btn = el[0];
+            btn.addEventListener('click',function(e){
+                //console.log(el.nextElementSibling);
+                //toggle(e.target.parentNode);
+            });
+        }
+    }
+});
