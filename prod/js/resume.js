@@ -56,12 +56,31 @@ resume.controller('rightController', ['$scope', function($scope) {
     };
 }]);
 
+resume.directive('canHide',function(){
+    var addToggleButton = function(){
+
+    }
+
+    var toggle = function(){
+
+    }
+
+    return {
+        restrict:'E',
+        scope:{
+
+        },
+        link:function(scope,el,attr){
+            
+        }
+    }
+});
+
 resume.directive('toggleButton',function(){
     var expanded = false;
     var toggle = function(e){
         if (expanded === false){
             e.parentNode.style.display="block";
-
             expanded = true;
         }else{
             // e.style.display="none";

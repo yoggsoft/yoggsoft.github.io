@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html ng-app="resume" lang="en">
+    <head>
+        <title>Manuel Reyes</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" type="text/javascript"></script>
+        <script src="prod/js/zepto.min.js" type="text/javascript"></script>
+        <script src="prod/js/resume.js" type="text/javascript"></script>
+        <script src="prod/js/logic.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="prod/css/style.css">
+        <link href='https://fonts.googleapis.com/css?family=Cantata+One' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" type="text/css"/>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Init () {
+                var dom = {};
+                dom.overlay = $(".overlay");
+                dom.outer = $('.outer');
+                dom.toggle = $('.toggleBtn');
+
+                dom.shown = false;
+                dom.moreMsg = "show more";
+                dom.lessMsg = "show less";
+                
+                dom.overlay.anim({
+                  opacity: '0'},0.5,'linear',function() {
+                    dom.overlay.remove();
+                  });
+                dom.outer.hide();
+                
+                dom.toggle.each(function(){
+                    $(this).text(dom.moreMsg);
+                    $(this).siblings().hide();
+                    $(this).bind('click',function(){
+                        $(this).siblings().slideToggle();
+                        if(!dom.shown){
+                            $(this).text(dom.lessMsg);
+                            dom.shown=true;
+                        }else{
+                            $(this).text(dom.moreMsg);
+                            dom.shown=false;
+                        }
+                    });
+                });
+                
+            }
+            window.addEventListener('DOMContentLoaded',function(){Init();});
+        </script>
+        <div class="overlay"></div>
+        
+        <div class="wrapper clearfix">
+          <div class="left" ng-controller="leftController as left">
+            <div class="name-hero">
+              <div class="me-img"></div>
+              <div class="name-text">
+                <h1>Manuel<em> Reyes</em></h1>
+                <div class="contact-info">
+                  <p>Buenos Aires, Argentina</p>
+                  <p>yoggsoft@gmail.com</p>
+                  <div class="contact-icons">
+                    <a ng-repeat="e in left.icons" href="{{e.path}}" target="blank">
+                      <i class="{{e.icon}}" aria-hidden="true"></i>  
+                    </a>
+                  </div>  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right" ng-controller = "rightController as right">
+            <div class="inner">
+              <section>
+                  <h1>About me</h1>
+                  <p>I'm a <i>Spanish</i> dude born and raised in <i>Venezuela</i>, living in <i>Argentina</i> working for worldwide clients. Cool, huh?</p>
+              </section>
+              <section>
+                  <h1>XP</h1>
+
+                  <p><em>Google Creative Ads Support Specialist</em>  |  Jan 2016 - present</p>
+                  <p>Still doing cool stuff.</p>
+                  
+                  <p><em>YouTube Media Campaign Manager</em>  |  Feb 2015 - Dec 2015</p>
+                  <p>Doing cooler stuff.</p>
+                  
+                  <p><em>Google Technical Support Specialist</em>  |  Jul 2013 - Jan 2015</p>
+                  <p>Doing cool stuff.</p>
+                  
+                  <div class="hidden">
+                  <div class="hiddable">
+                  <p><em>W3 Digital Agency., Content Manager / Developer</em>  |  June 2013 - July 2013</p>
+                  <p>Team provide support creating digital content for 
+                      <i>CITI BANK</i> online products worldwide.</p>
+                  
+
+                  <p><em>Wisboo.com, Front-End Dev.</em>  |  October 2012 - May 2013</p>
+                  <p>At Wisboo.com, I took part of a 4-member team to build a large scale online product from the ground up. 
+                      Making use of <i>MVC patterns</i> where I mostly took hands on the <i>VIEW</i> and <i>CONTROLLER</i> layers implementing 
+                      many technologies PHP ,Javascript, WebGL, WebRTC, Yii Framework, Bootstrap, AJAX and jQuery to 
+                      Achieve the first pre-release of the product.</p>
+                  
+                          <p><em>Verbaloop.com, AS3 Developer.</em>  |  October 2012 - February 2013</p>
+                          <p>At Verbaloop, I had the opportunity to Develop the <i>"Afasia"</i> series an AS3 Videogame from scratch designed and dedicated to
+                              the treatment of aphasia patients. This software is currently for commercial use and supports PC, MAC and iOS 4+ published on AppStore.</p>
+                          
+                          <p><em>Yoggsoft Studios, Freelance Agency</em>  |  March 2008 - April 2012</p>
+                          <p>The job that paid my scholarship, I started running a digital agency that offered web based solutions
+                              to SMEs and acquaintance's Business. Part of my client list were located in <i>Venezuela</i> and <i>Spain</i>, and 
+                              some of my clients were from <i>Mexico</i> and <i>Argentina</i> when I moved to Buenos Aires in 2012.</p>
+                          
+                          <p><em>Evenpro C.A., Disney Live Interpreter</em>  |  June 2007 - August 2007</p>
+                          <p>At Evenpro, I had the chance to translate logistic and functional orders from U.S. Staff to locals 
+                              building the show <i>Disney Live - Winnie The Pooh</i>.</p>
+                      </div>
+                      <div class="toggleBtn" toggle-button>
+                        <i class="fa fa-chevron-up"></i>
+                      </div>
+                  </div>
+                </section>
+                <section>
+                    <h1>Education</h1>
+                    <p>January 2003 - January 2011 | <em>Universidad Jose Antonio Paez, Computer Engineering Degree</em></p>
+                    <p>Computer Engineering Degree.</p>
+                    <p><em>Thesis degree with Honors and Publication Mention</em></p>
+                    <p>May 2010 - January 2011  | DESARROLLO DE SOFTWARE EDUCATIVO Y DIDÁCTICO PARA NIÑOS ENTRE PRIMERO Y SEXTO GRADO DE EDUCACIÓN BÁSICA BAJO PLATAFORMA WEB 2.0</p>
+                </section>
+                <section ng-repeat = "e in right.skills">
+                    <h1>{{e.label}}</h1>
+                    <ul class="skill-set">
+                        <li ng-repeat = "f in e.data">{{f}}</li>
+                    </ul>
+                </section>
+                <section>
+                  <h1>Trivia</h1>
+                  <p>Born | <a href="https://www.google.com.ar/maps/place/Caracas,+Distrito+Capital,+Venezuela/@10.1082752,-68.0397663,6.69z/data=!4m5!3m4!1s0x8c2a58adcd824807:0x93dd2eae0a998483!8m2!3d10.4805937!4d-66.9036063" target="_blank"><em>Caracas</em></a></p>
+                  <p>Nationalities | <em>Spain, Venezuela.</em></p>
+                  <p>Moved to Argentina | <em>April 2012.</em></p>
+                  <div class="hidden">
+                      <div class="hiddable">
+                          <p>Movie | <em>Titanic</em>.</p>
+                          <p>Videogame | <em>Tomb Raider</em>.</p>
+                          <p>Football Player | <em>Cristiano Ronaldo</em>.</p>
+                          <p>Rockstar | <em>Bret Michaels</em>.</p>
+                          <p>Affraid of | <em>roaches, "the exorcist" movie</em>.</p>
+                          <p>Food | <em>Arepas</em>.</p>
+                          <p>TV | <em>The Simpsons</em>.</p>
+                      </div>
+                      <div class="toggleBtn" toggle-button>
+                        <i class="fa fa-chevron-up"></i>
+                      </div>
+                  </div>
+                </section>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>

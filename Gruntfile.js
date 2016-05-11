@@ -1,26 +1,21 @@
 module.exports = function(grunt) {
 
-	var paths = {
-		prod : "prod",
-		deploy : "deploy",
-		style : "style",
-		logic : "js"
-	};
-
-  // Project configuration.
+	// Project configuration.
   grunt.initConfig({
     pkg : grunt.file.readJSON('package.json'),
     /*
     htmlmin Task 
     */
-	htmlmin : {
-		options : {
-			removeComments : true,
-			collapseWhitespace : true
-		},
-		files : {
-			'deploy/index.html' : ['prod/index.html']
-    	}
+    htmlmin : {
+      dist : {
+        options : {
+          removeComments : true,
+          collapseWhitespace : true
+        },
+        files : {
+          'index.html' : 'index-human.html'
+        }
+      }
     },
     /*
     uglify Task 
@@ -31,21 +26,48 @@ module.exports = function(grunt) {
     	},
     	target : {
     		files: {
-    			'deploy/js/main.min.js' : ['prod/js/game.js']
+    			'deploy/js/main.min.js' : 'prod/js/game.js'
     		}
     	}    	
     },
     /*
-    Watch Task 
+    watch Task 
     */
     watch: {
-      html:{
-        files:'prod/*.html',
+      htmlmin:{
+        files:'*.html',
         tasks: ['htmlmin']
       },
-      js:{
-        files:'prod/js/*.js',
-        tasks: ['uglify']
+      uglify:{
+        files :'prod/js/*.js',
+        tasks : ['uglify']
+      },
+      sass : {
+        files : 'prod/sass/*.scss',
+        tasks : ['sass']
+      }
+    },
+    /*
+    sass Task 
+    */
+    sass : {
+      dev : {
+        options : {
+          style : 'expanded',
+          sourcemap:'none'
+        },
+        files : {
+          'prod/css/main.css' : 'prod/sass/main.scss',
+        }
+      },
+      dist : {
+        options : {
+          style : 'compressed',
+          sourcemap:'none'
+        },
+        files : {
+          'deploy/css/main.css' : 'prod/sass/main.scss'
+        }
       }
     }
   });
@@ -55,6 +77,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   // Load the plugin that provides the "htmlmin" task.
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  // Load the plugin that provides the "sass" task.
+  grunt.loadNpmTasks('grunt-contrib-sass');
   // Load the plugin that provides the "watch" task.
   grunt.loadNpmTasks('grunt-contrib-watch');
 
