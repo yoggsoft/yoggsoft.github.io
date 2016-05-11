@@ -8,12 +8,14 @@ resume.controller('rightController', ['$scope', function($scope) {
             label:"Technical Skills",
             data:[
                 'HTML5',
-                'CSS3 - SASS',
+                'CSS3',
+                'SASS',
                 'AngularJS',
                 'Git',
                 'ActionScript',
                 'Javascript',
-                'Node - Grunt',
+                'Node',
+                'Grunt',
                 'jQuery',
                 'Rich Media',
                 'PHP'

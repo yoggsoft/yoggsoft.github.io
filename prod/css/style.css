@@ -28,12 +28,6 @@ html
 }
 
 
-h1
-{
-	color:rgb(0,0,0);
-	color:rgba(0,0,0,.75);
-}
-
 body
 {
 	-webkit-font-smoothing:antialiased;
@@ -211,13 +205,14 @@ ul
 .skill-set li
 {
 	font-size:95%;
-	background:rgba(0,0,0,.75);
+	background-color: rgb(0,0,0);
+	background-color:rgba(0,0,0,.75);
 	border-radius:5px;
 	color:#FFF;
 	display:inline-block;
 	list-style:none;
-	margin:8px 10px 0 0;
-	padding: 10px 5px 0 5px;
+	margin:8px 10px 0px 0px;
+	padding: 10px 5px 0px 5px;
 	max-width: 169px;
 	min-width: 36px;
 	height:30px;
@@ -269,9 +264,10 @@ ul
     display: block;
     margin-top: -20px;
 }
-.hiddable{}
+
 .toggleBtn{
     display:block;
+    color:rgb(0,0,0);
     color:rgba(0,0,0,.75);
     cursor: pointer;
     padding-top: 10px;
@@ -299,6 +295,11 @@ ul
     background: url(../img/mobileMe.png) no-repeat center center;
     width:312px;
     height:312px;
+}
+
+.contact-icons{
+	width:300px;
+	margin:0 auto;
 }
 a {
 	text-decoration: none;
