@@ -1,7 +1,8 @@
 /* 
     Document   : styleSummary
     Created on : Oct 28, 2013, 3:49:43 AM
-    Author     : yoggsoft
+    LAst Update : May 11, 2016, 0:24:02 AM
+    Author     : Manuel Reyes
     Description:
         Styles for cool resume.
 */
@@ -92,7 +93,7 @@ h1
 
 .me-img
 {
-	background:url(https://googledrive.com/host/0Bx6g2L73qPQjT0daSFRRRy1aaWs/mreyes_2013.jpg) no-repeat center center ;
+	background:url(../img/mreyes_2013.jpg) no-repeat center center ;
 	/*background-size:200%;*/
 	border-radius:100%;
 	height:150px;
@@ -293,7 +294,7 @@ ul
     background:#126ee0;
 }
 .mobileMe{
-    background: url(https://googledrive.com/host/0Bx6g2L73qPQjMTBMaWxBMERrUms/mobileMe.png) no-repeat center center;
+    background: url(../img/mobileMe.png) no-repeat center center;
     width:312px;
     height:312px;
 }
