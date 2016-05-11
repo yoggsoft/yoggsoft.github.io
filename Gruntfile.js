@@ -81,7 +81,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   // Load the plugin that provides the "watch" task.
   grunt.loadNpmTasks('grunt-contrib-watch');
-
   // Default task(s).
   grunt.registerTask('default', ['htmlmin']);
 

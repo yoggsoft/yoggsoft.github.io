@@ -11,6 +11,10 @@ resume.controller('mainController',['$scope',function($scope){
 
 resume.controller('leftController',['$scope',function($scope){
     this.icons = {
+        gmail:{
+            icon:"fa fa-envelope-o fa-2x",
+            path:"mailto:yoggsoft@gmail.com"
+        },
         github:{
             icon:"fa fa-github fa-2x",
             path:"https://www.github.com/yoggsoft"
@@ -18,7 +22,8 @@ resume.controller('leftController',['$scope',function($scope){
         linkedin:{
             icon:"fa fa-linkedin fa-2x",
             path:"https://ar.linkedin.com/in/querales"
-        },
+        }
+        
     }
 }]);
 
@@ -38,7 +43,8 @@ resume.controller('rightController', ['$scope', function($scope) {
                 'Grunt',
                 'jQuery',
                 'Rich Media',
-                'PHP'
+                'PHP',
+                'Wordpress'
                 ]
         },
         certs: {
