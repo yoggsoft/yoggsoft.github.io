@@ -1,12 +1,12 @@
 /* 
-    Document   : styleSummary
+    Document   : style
     Created on : Oct 28, 2013, 3:49:43 AM
     LAst Update : May 11, 2016, 0:24:02 AM
     Author     : Manuel Reyes
     Description:
         Styles for cool resume.
 */
-#overlay {
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -27,6 +27,13 @@ html
 	font-size:100%;
 }
 
+
+h1
+{
+	color:rgb(0,0,0);
+	color:rgba(0,0,0,.75);
+}
+
 body
 {
 	-webkit-font-smoothing:antialiased;
@@ -44,11 +51,6 @@ body
 .skill-set li:hover
 {
 	background:#126ee0;
-}
-
-h1
-{
-	color:rgba(0,0,0,.75);
 }
 
 .wrapper
@@ -104,7 +106,6 @@ h1
 
 .name-hero h1
 {
-	/*font-family:Open Sans, sans-serif;*/
 	font-size:1.5em;
 	text-align:center;
 }
@@ -226,23 +227,24 @@ ul
 }
 
 @media screen and (max-width: 48em) {
-	.right,.left
-	{
-            float:none;
-            position:relative !important;
-            width:100%;
-            min-height:500px;
-	}
+	.right,.left{
+	    float:none;
+	    position:relative;
+	    width:100%;
+	    min-height:500px;
+    }
+    .me-img{
+    	display: none;
+    }
+	
 
 }
 @media screen and (max-width: 75em) {
-    body
-{ font-size:16px;}
+    body { font-size:16px;}
 }
 
 @media screen and (max-width: 60em) {
-    body
-{ font-size:14px;}
+    body { font-size:14px;}
 }
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
@@ -297,4 +299,7 @@ ul
     background: url(../img/mobileMe.png) no-repeat center center;
     width:312px;
     height:312px;
+}
+a {
+	text-decoration: none;
 }
