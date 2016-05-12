@@ -141,7 +141,9 @@ a
 	margin:0 8px 0 0;
 	text-align:center;
 }
-
+i {
+	font-style: normal;
+}
 .name-hero .name-text
 {
 	margin:0 auto;
@@ -168,7 +170,7 @@ a
 .inner p em
 {
 	color:rgba(0,0,0,.75);
-	font-style:normal;
+	/*font-style:normal;*/
 }
 .inner p i
 {
@@ -204,7 +206,7 @@ a
 .outer p em
 {
 	color:rgba(0,0,0,.75);
-	font-style:normal;
+	/*font-style:normal;*/
 }
 
 .outer section
