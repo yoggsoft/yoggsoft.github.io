@@ -32,6 +32,7 @@ body
     height:100%;
     margin: 0 auto;
     overflow-x:hidden;
+    min-width:300px;
 }
 
 ul
