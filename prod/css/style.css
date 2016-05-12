@@ -173,7 +173,7 @@ a
 .inner p i
 {
 	color:rgba(0,0,0,.5);
-	font-style:italic;
+	/*font-style:italic;*/
 }
 
 .inner section
@@ -323,7 +323,9 @@ a
 		min-height: 15em;
 	}
 	.me-img{
-    	display: none;
+		width:10px;
+    	height:10px;
+    	/*display: none;*/
     }
     
 }
