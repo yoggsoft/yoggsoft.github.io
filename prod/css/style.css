@@ -23,7 +23,7 @@ body
 {
 	-webkit-font-smoothing:antialiased;
 	color:#333332;
-	font-family: 'Cantata One', serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size:18px;
 	font-weight:400;
 	line-height:1.4;
@@ -105,12 +105,19 @@ a
 
 .me-img
 {
-	background:url(../img/mreyes_2013.jpg) no-repeat center center ;
+	/*background:url(../img/mreyes_2013.jpg) no-repeat center center ;*/
 	border-radius:100%;
-	height:150px;
+	height:250px;
 	margin:0 auto;
+	margin-top:-10%;
 	position:relative;
-	width:150px;
+	width:250px;
+	overflow:hidden;
+}
+.me-img img {
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 
 .name-hero h1
@@ -205,7 +212,7 @@ a
 	margin:0 auto;
 	min-height: 500px;
 	max-width: 900px;
-        overflow: hidden;
+    overflow: hidden;
 }
 
 .skill-set li
@@ -223,7 +230,6 @@ a
 	min-width: 36px;
 	height:30px;
 	text-align:center;
-	display:in-line;
 	overflow:hidden;
 }
 
@@ -294,6 +300,7 @@ a
 .contact-icons{
 	position: relative;
 	margin:0 auto;
+	min-width:12em;
 	clear:none;
 	padding: 20px;
 }
@@ -318,6 +325,7 @@ a
 	.me-img{
     	display: none;
     }
+    
 }
 
 @media screen and (max-width: 48em) {
@@ -329,12 +337,22 @@ a
 	    min-height:30em;
 	    clear:none;
     }
+    .me-img{
+    	width:150px;
+    	height:150px;
+    	top:0px;
+    }
 }
 
 @media screen and (max-width: 75em) {
     body { font-size:16px;}
+    .me-img{
+    	width:200px;
+    	height:200px;
+    }
 }
 
 @media screen and (max-width: 60em) {
     body { font-size:14px;}
+    
 }
