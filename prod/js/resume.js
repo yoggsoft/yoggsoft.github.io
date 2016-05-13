@@ -75,11 +75,9 @@ resume.directive('canHide',function(){
     var addToggleButton = function(){
 
     }
-
     var toggle = function(){
 
     }
-
     return {
         restrict:'E',
         scope:{
@@ -98,7 +96,6 @@ resume.directive('toggleButton',function(){
             e.parentNode.style.display="block";
             expanded = true;
         }else{
-            // e.style.display="none";
             expanded = false;
         }
     }
@@ -108,8 +105,6 @@ resume.directive('toggleButton',function(){
         link:function(scope,el,attr){
             var btn = el[0];
             btn.addEventListener('click',function(e){
-                //console.log(el.nextElementSibling);
-                //toggle(e.target.parentNode);
             });
         }
     }

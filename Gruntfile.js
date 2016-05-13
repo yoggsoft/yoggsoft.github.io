@@ -26,7 +26,8 @@ module.exports = function(grunt) {
     	},
     	target : {
     		files: {
-    			'deploy/js/main.min.js' : 'prod/js/game.js'
+    			// 'deploy/js/main.min.js' : 'prod/js/game.js',
+          'deploy/js/resume.js' : 'prod/js/resume.js'
     		}
     	}    	
     },
