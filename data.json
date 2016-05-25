@@ -1,0 +1,25 @@
+{
+    "data":[
+       {
+           "company":"Google",
+           "role":"Creative ADs Support Specialist",
+           "period":"Jan 2016 - present",
+           "description":"html5 stuff",
+           "employer":"Cognizant"
+       },
+       {
+           "company":"YouTube",
+           "role":"YouTube Media Campaign Manager",
+           "period":"Feb 2015 - Dec 2015",
+           "description":"youtube stuff",
+           "employer":"Cognizant"
+       },
+       {
+           "company":"Google",
+           "role":"Technical Support Specialist",
+           "period":"Jul 2013 - Jan 2015",
+           "description":"cool rich media stuff",
+           "employer":"Cognizant"  
+       }
+    ]
+}

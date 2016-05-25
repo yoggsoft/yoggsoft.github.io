@@ -2,6 +2,20 @@ module.exports = function(grunt) {
 
 	// Project configuration.
   grunt.initConfig({
+    path:{
+      js:{
+        origin:"prod/js",
+        destiny:"deploy/js"
+      },
+      // css:{
+      //   origin:"prod/js",
+      //   destiny:"deploy/js"
+      // },
+      // html:{
+      //   origin:"prod/js",
+      //   destiny:"deploy/js"
+      // },
+    },
     pkg : grunt.file.readJSON('package.json'),
     /*
     htmlmin Task 
@@ -27,7 +41,9 @@ module.exports = function(grunt) {
     	target : {
     		files: {
     			// 'deploy/js/main.min.js' : 'prod/js/game.js',
-          'deploy/js/resume.js' : 'prod/js/resume.js'
+          '<%= path.js.destiny  %>/resume.js' : '<%= path.js.origin  %>/resume.js',
+          // '<%= grunt.path.js.destiny  %>/resume.js' : 'prod/js/resume.js',
+          
     		}
     	}    	
     },

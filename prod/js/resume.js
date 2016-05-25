@@ -71,41 +71,25 @@ resume.controller('rightController', ['$scope', function($scope) {
     };
 }]);
 
-resume.directive('canHide',function(){
-    var addToggleButton = function(){
-
-    }
-    var toggle = function(){
-
-    }
-    return {
-        restrict:'E',
-        scope:{
-
+resume.directive('collapsingContainer',['$http',function($http){
+   return{
+       restrict:"E",
+       require:"collapsingContainer",
+       controller:function(){
+           this.data = this.data || {};
+           this.maxItems = 0;
+       },
+       link:function(scope,el,attr,collapsingContainerCtrl){
+        collapsingContainerCtrl.maxItems = attr.max;
+        $http.get(attr.source)
+        .then(function(response){
+           collapsingContainerCtrl.data = response.data;
+           console.log(response.data);
+           scope.$broadcast('data-loaded',collapsingContainerCtrl.data);
         },
-        link:function(scope,el,attr){
-            
-        }
-    }
-});
-
-resume.directive('toggleButton',function(){
-    var expanded = false;
-    var toggle = function(e){
-        if (expanded === false){
-            e.parentNode.style.display="block";
-            expanded = true;
-        }else{
-            expanded = false;
-        }
-    }
-
-    return{
-        restrict:'A',
-        link:function(scope,el,attr){
-            var btn = el[0];
-            btn.addEventListener('click',function(e){
-            });
-        }
-    }
-});
+        function(){
+           console.log('ups... no data!');
+        });
+       }
+   } ;
+}]);

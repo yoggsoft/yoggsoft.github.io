@@ -4,12 +4,18 @@
         <title>Manuel Reyes</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
+        <!--Angular Library-->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" type="text/javascript"></script>
+        <!--Zepto-->
         <script src="prod/js/zepto.min.js" type="text/javascript"></script>
+        <!--Angular app-->
         <script src="deploy/js/resume.js" type="text/javascript"></script>
+        <!--Style-->
         <link rel="stylesheet" type="text/css" href="prod/css/style.css">
+        <!--Font Family-->
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" type="text/css"/>
+        <!--FontAwesome-->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <script type="text/javascript">
@@ -39,7 +45,7 @@
           <div class="left" ng-controller="leftController as left">
             <div class="name-hero">
               <div class="me-img">
-                <img src="prod/img/mreyes_2013.jpg"></img>
+                <img src="deploy/img/mreyes_2013.jpg"></img>
               </div>
               <div class="name-text">
                 <h1>Manuel<em> Reyes</em></h1> 
@@ -54,23 +60,34 @@
               </div>
             </div>
           </div>
-          <div class="right" ng-controller = "rightController as right">
+          <div class="right" ng-controller="rightController as right">
             <div class="inner">
               <section>
                   <h1>About me</h1>
                   <p>I'm a spanish dude born and raised in Venezuela, living in Argentina working for worldwide clients. Cool, huh?</p>
               </section>
               <section>
+                
+                <collapsing-container max="3" source="././data.json">
+                  <!--<collapsing-section>-->
+                    
+                  <!--</collapsing-section>-->
+                </experience-container>
+                  
                   <h1>XP</h1>
-
-                  <p><i>Google Creative Ads Support Specialist</i>  |  Jan 2016 - present</p>
-                  <p>Still doing cool stuff.</p>
-                  
-                  <p><i>YouTube Media Campaign Manager</i>  |  Feb 2015 - Dec 2015</p>
-                  <p>Doing cooler stuff.</p>
-                  
-                  <p><i>Google Technical Support Specialist</i>  |  Jul 2013 - Jan 2015</p>
-                  <p>Doing cool stuff.</p>
+                  <div class="xp">
+                    
+                    <p><i>Google Creative Ads Support Specialist</i>  |  Jan 2016 - present</p>
+                    <p>Still doing cool stuff.</p>
+                  </div>  
+                  <div>
+                    <p><i>YouTube Media Campaign Manager</i>  |  Feb 2015 - Dec 2015</p>
+                    <p>Doing cooler stuff.</p>
+                  </div>
+                  <div>
+                    <p><i>Google Technical Support Specialist</i>  |  Jul 2013 - Jan 2015</p>
+                    <p>Doing cool stuff.</p>
+                  </div>
                   
                   <div class="hidden">
                   <div class="hiddable">
@@ -107,32 +124,32 @@
                     <p><em>Thesis degree with Honors and Publication Mention</em></p>
                     <p>May 2010 - January 2011  | DESARROLLO DE SOFTWARE EDUCATIVO Y DIDÁCTICO PARA NIÑOS ENTRE PRIMERO Y SEXTO GRADO DE EDUCACIÓN BÁSICA BAJO PLATAFORMA WEB 2.0</p>
                 </section>
-                <section ng-repeat = "e in right.skills">
-                    <h1>{{e.label}}</h1>
-                    <ul class="skill-set">
-                        <li ng-repeat = "f in e.data">{{f}}</li>
-                    </ul>
-                </section>
-                <section>
-                  <h1>Trivia</h1>
-                  <p>Born | <a href="https://www.google.com.ar/maps/place/Caracas,+Distrito+Capital,+Venezuela/@10.1082752,-68.0397663,6.69z/data=!4m5!3m4!1s0x8c2a58adcd824807:0x93dd2eae0a998483!8m2!3d10.4805937!4d-66.9036063" target="_blank"><em>Caracas</em></a></p>
-                  <p>Nationalities | <em>Spain, Venezuela.</em></p>
-                  <p>Moved to Argentina | <em>April 2012.</em></p>
-                  <div class="hidden">
-                      <div class="hiddable">
-                          <p>Movie | <em>Titanic</em>.</p>
-                          <p>Videogame | <em>Tomb Raider</em>.</p>
-                          <p>Football Player | <em>Cristiano Ronaldo</em>.</p>
-                          <p>Rockstar | <em>Bret Michaels</em>.</p>
-                          <p>Affraid of | <em>roaches, "the exorcist" movie</em>.</p>
-                          <p>Food | <em>Arepas</em>.</p>
-                          <p>TV | <em>The Simpsons</em>.</p>
-                      </div>
-                      <div class="toggleBtn" toggle-button>
-                        <i class="fa fa-chevron-up"></i>
-                      </div>
-                  </div>
-                </section>
+                <!--<section ng-repeat = "e in right.skills">-->
+                <!--    <h1>{{e.label}}</h1>-->
+                <!--    <ul class="skill-set">-->
+                <!--        <li ng-repeat = "f in e.data">{{f}}</li>-->
+                <!--    </ul>-->
+                <!--</section>-->
+                <!--<section>-->
+                <!--  <h1>Trivia</h1>-->
+                <!--  <p>Born | <a href="https://www.google.com.ar/maps/place/Caracas,+Distrito+Capital,+Venezuela/@10.1082752,-68.0397663,6.69z/data=!4m5!3m4!1s0x8c2a58adcd824807:0x93dd2eae0a998483!8m2!3d10.4805937!4d-66.9036063" target="_blank"><em>Caracas</em></a></p>-->
+                <!--  <p>Nationalities | <em>Spain, Venezuela.</em></p>-->
+                <!--  <p>Moved to Argentina | <em>April 2012.</em></p>-->
+                <!--  <div class="hidden">-->
+                <!--      <div class="hiddable">-->
+                <!--          <p>Movie | <em>Titanic</em>.</p>-->
+                <!--          <p>Videogame | <em>Tomb Raider</em>.</p>-->
+                <!--          <p>Football Player | <em>Cristiano Ronaldo</em>.</p>-->
+                <!--          <p>Rockstar | <em>Bret Michaels</em>.</p>-->
+                <!--          <p>Affraid of | <em>roaches, "the exorcist" movie</em>.</p>-->
+                <!--          <p>Food | <em>Arepas</em>.</p>-->
+                <!--          <p>TV | <em>The Simpsons</em>.</p>-->
+                <!--      </div>-->
+                <!--      <div class="toggleBtn" toggle-button>-->
+                <!--        <i class="fa fa-chevron-up"></i>-->
+                <!--      </div>-->
+                <!--  </div>-->
+                <!--</section>-->
             </div>
           </div>
         </div>
