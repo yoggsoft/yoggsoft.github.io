@@ -7,10 +7,11 @@ module.exports = function(grunt) {
         origin:"prod/js",
         destiny:"deploy/js"
       },
-      // css:{
-      //   origin:"prod/js",
-      //   destiny:"deploy/js"
-      // },
+      sass:{
+        origin:"prod/sass",
+        deploy_destiny:"deploy/css",
+        prod_destiny:"prod/css",
+      }
       // html:{
       //   origin:"prod/js",
       //   destiny:"deploy/js"
@@ -40,10 +41,13 @@ module.exports = function(grunt) {
     	},
     	target : {
     		files: {
-    			// 'deploy/js/main.min.js' : 'prod/js/game.js',
-          '<%= path.js.destiny  %>/resume.js' : '<%= path.js.origin  %>/resume.js',
-          // '<%= grunt.path.js.destiny  %>/resume.js' : 'prod/js/resume.js',
-          
+          '<%= path.js.destiny %>/app.js' : 
+          [
+            '<%= path.js.origin %>/angular.min.js',
+            '<%= path.js.origin %>/velocity.min.js',
+            '<%= path.js.origin %>/resume_module.js',
+            '<%= path.js.origin %>/resume.js'
+          ]
     		}
     	}    	
     },
@@ -56,11 +60,11 @@ module.exports = function(grunt) {
         tasks: ['htmlmin']
       },
       uglify:{
-        files :'prod/js/*.js',
+        files : ['<%= path.js.origin %>/*.js','<%= path.js.origin %>/**/*.js'],
         tasks : ['uglify']
       },
       sass : {
-        files : 'prod/sass/*.scss',
+        files : '<%= path.sass.origin %>/*.scss',
         tasks : ['sass']
       }
     },
@@ -74,7 +78,7 @@ module.exports = function(grunt) {
           sourcemap:'none'
         },
         files : {
-          'prod/css/main.css' : 'prod/sass/main.scss',
+          '<%= path.sass.prod_destiny %>/main.css' : '<%= path.sass.origin %>/main.scss',
         }
       },
       dist : {
@@ -83,22 +87,20 @@ module.exports = function(grunt) {
           sourcemap:'none'
         },
         files : {
-          'deploy/css/main.css' : 'prod/sass/main.scss'
+          '<%= path.sass.deploy_destiny %>/main.css' : '<%= path.sass.origin %>/main.scss'
         }
       }
     }
   });
-
-
-  // Load the plugin that provides the "uglify" task.
+  // Load the plugin that provides the "uglify" task
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  // Load the plugin that provides the "htmlmin" task.
+  // Load the plugin that provides the "htmlmin" task
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  // Load the plugin that provides the "sass" task.
+  // Load the plugin that provides the "sass" task
   grunt.loadNpmTasks('grunt-contrib-sass');
-  // Load the plugin that provides the "watch" task.
+  // Load the plugin that provides the "watch" task
   grunt.loadNpmTasks('grunt-contrib-watch');
-  // Default task(s).
+  // Default task(s)
   grunt.registerTask('default', ['htmlmin']);
 
 };

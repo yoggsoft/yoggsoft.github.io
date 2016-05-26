@@ -1,25 +1,57 @@
 {
-    "data":[
-       {
-           "company":"Google",
-           "role":"Creative ADs Support Specialist",
-           "period":"Jan 2016 - present",
-           "description":"html5 stuff",
-           "employer":"Cognizant"
-       },
-       {
-           "company":"YouTube",
-           "role":"YouTube Media Campaign Manager",
-           "period":"Feb 2015 - Dec 2015",
-           "description":"youtube stuff",
-           "employer":"Cognizant"
-       },
-       {
-           "company":"Google",
-           "role":"Technical Support Specialist",
-           "period":"Jul 2013 - Jan 2015",
-           "description":"cool rich media stuff",
-           "employer":"Cognizant"  
-       }
-    ]
+	"data": [{
+		"About": [{
+			"description": "I'm cool"
+		}]
+	}, {
+		"XP": [{
+			"company": "Google",
+			"role": "Creative ADs Support Specialist",
+			"period": "Jan 2016 - present",
+			"description": "html5 stuff",
+			"employer": "Cognizant"
+		}, {
+			"company": "YouTube",
+			"role": "YouTube Media Campaign Manager",
+			"period": "Feb 2015 - Dec 2015",
+			"description": "youtube stuff",
+			"employer": "Cognizant"
+		}, {
+			"company": "Google",
+			"role": "Technical Support Specialist",
+			"period": "Jul 2013 - Jan 2015",
+			"description": "cool rich media stuff",
+			"employer": "Cognizant"
+		}]
+	}, {
+		"Education": [{
+			"university": "Universidad Jose Antonio Paez",
+			"Major": "Computer Engineering Degree",
+			"period": "Jul 2013 - Jan 2015"
+		}]
+	}, {
+		"Skills": [
+			"", "", ""
+		]
+	}, {
+		"Languages": [
+		    {"label":"English"},
+		    {"label":"Spanish"},
+		    {"label":"Portuguese"},
+		    {"label":"German"},
+		    {"label":"French"}
+	    ]
+	}, {
+		"Trivia": [{
+			"Born": "Caracas",
+			"Nationalities": "Spain, Venezuela",
+			"Movie": "Titanic",
+			"Game": "Tomb Raider",
+			"Football Player": "Cristiano Ronaldo",
+			"Rockstar": "Bret Michaels",
+			"Fears": "Roaches and Little girl from 'The Exorcist'",
+			"Foot": "Arepas",
+			"TV Show": "The Simpsons"
+		}]
+	}]
 }

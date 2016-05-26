@@ -1,5 +1,18 @@
+// Color
 $main-color : #333332;
 $secondary-color: #333;
+$border-color: rgb(236,236,236);
+$left-background-color:  rgb(249,249,249);
+$hover-color : #126ee0;
 
+// Font
 $main-font : 'Cantata One', serif;
+$font-color : #999;
+$font-weight : 400;
 
+// Media Queries
+
+$media-large-desktop : "screen and (max-width: 75em)";
+$media-desktop : "screen and (max-width: 60em)";
+$media-tablet : "screen and (max-width: 48em)";
+$media-mobile : "screen and (max-width: 33em)";
