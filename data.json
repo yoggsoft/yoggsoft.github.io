@@ -1,8 +1,7 @@
 {
-	"data": [{
-		"About": [{
-			"description": "I'm cool"
-		}]
+	"info": [
+	{
+		"About": "I'm cool"
 	}, {
 		"XP": [{
 			"company": "Google",
@@ -53,5 +52,28 @@
 			"Foot": "Arepas",
 			"TV Show": "The Simpsons"
 		}]
+	}, {
+		"Icons": [
+			{
+				"label" : "gmail",
+				"icon" : "fa fa-envelope-o fa-2x",
+				"path" : "mailto:yoggsoft@gmail.com"
+			},
+			{
+				"label" : "github",
+				"icon" : "fa fa-github fa-2x",
+				"path" : "https://www.github.com/yoggsoft"
+			},
+			{
+				"label" : "linkedin",
+				"icon" : "fa fa-linkedin fa-2x",
+				"path" : "https://ar.linkedin.com/in/querales"
+			},
+			{
+				"label" : "codepen",
+				"icon" : "fa fa-codepen fa-2x",
+				"path" : "https://codepen.io/yoggsoft/"
+			}
+		]
 	}]
 }

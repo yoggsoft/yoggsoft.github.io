@@ -1,0 +1,19 @@
+<div class="left" ng-controller="leftController as left">
+    <div class="name-hero">
+      <div class="me-img">
+        <img src="deploy/img/mreyes_2013.jpg"></img>
+        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAeeAAAAJDAxOGQ1NzhlLTEzNTctNDZhMS1iNDk3LWEwNWM3N2IwY2Y2NQ.jpg"></img>
+      </div>
+      <div class="name-text">
+        <h1>Manuel<em> Reyes</em></h1> 
+        <div class="contact-info">
+          <p>Buenos Aires, Argentina</p>
+          <div class="contact-icons">
+            <a ng-repeat="e in left.icons" href="{{e.path}}" target="_blank" title="{{e.label}}">
+              <i class="{{e.icon}}" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

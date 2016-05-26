@@ -13,18 +13,22 @@
       <!--FontAwesome-->
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body ng-controller="mainController as main">
+    <body>
         <overlay></overlay>
         <resume-container source="././data.json">
-          <container-left></container-left>
-          <container-right></container-right>
+          <container-left>
+          </container-left>
+          <container-right>
+            
+          </container-right>
         </resume-container>
         
         <div class="wrapper clearfix">
           <div class="left" ng-controller="leftController as left">
             <div class="name-hero">
               <div class="me-img">
-                <img src="deploy/img/mreyes_2013.jpg"></img>
+                <!--<img src="deploy/img/mreyes_2013.jpg"></img>
+                <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAeeAAAAJDAxOGQ1NzhlLTEzNTctNDZhMS1iNDk3LWEwNWM3N2IwY2Y2NQ.jpg"></img>-->
               </div>
               <div class="name-text">
                 <h1>Manuel<em> Reyes</em></h1> 

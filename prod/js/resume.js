@@ -7,14 +7,33 @@ resume.directive('overlay',function(){
         link:function(scope,el,attr,ctrl){
             var overlay = el[0];
             window.addEventListener('load',function(){
-                Velocity(overlay,"slideUp","linear",{
-                    duration:1000
+                Velocity(
+                    overlay,
+                    "slideUp",
+                    "linear",
+                    {
+                        duration:1500
                     }
                 );
             });
         }
     };
 });
+
+resume.directive('container-left',['$scope',function($scope){
+    return{
+        restrict:'E',
+        require:'^resumeContainer',
+        replace:true,
+        templateUrl:'./template/leftContainerTemplate.html',
+        controller:function(){
+            /*this.icons = ;*/
+        },
+        link:function(scope,el,attr,ctrl){
+            
+        },
+    };
+}]);
 
 resume.directive('resumeContainer',['$http',function($http){
     return{
@@ -23,22 +42,34 @@ resume.directive('resumeContainer',['$http',function($http){
         template:'<div class="wrapper clearfix">'+
         '<data-ng-transclude></data-ng-transclude>'+
         '</div>',
+        require:"resumeContainer",
         controller:function(){
             var data = data || {};
-            this.setData = function(datajson){
+            this.parseData = function(datajson){
+                console.log(datajson[0]);
+                var len = datajson.length();
+                for (var i=0;i<len;i++){
+                    data[i] = i;
+                    console.log( data);
+                }
+                /*datajson.forEach(function(element,index,array){
+                    console.log(array +'['+index+'] = '+element);
+                });*/
                 // $scope.data = datajson; 
             };
             this.getData = function(){
                 return data;
             };
+            /*this.getAbout = function(){
+                return data[0][0];
+            };*/
         },
         link:function(scope,el,attr,resumeContainerCtrl){
             $http.get(attr.source).then(
                 // success
                 function(response){
-                    var res = response.data;
-                    scope.$broadcast('data-loaded',res);
-                    // console.log(response);
+                    var res = response.data.info;
+                    resumeContainerCtrl.parseData(res);
                 },
                 // error
                 function(){
@@ -47,15 +78,6 @@ resume.directive('resumeContainer',['$http',function($http){
             );
         }
     };
-}]);
-
-resume.controller('mainController',['$scope',function($scope){
-    this.data = this.data || {};
-    // this.setData = function(e){
-    //     console.log(e);
-    // };
-    // this.moreMsg = "show more";
-    // this.lessMsg = "show less";
 }]);
 
 resume.controller('leftController',['$scope',function($scope){
@@ -81,7 +103,6 @@ resume.controller('leftController',['$scope',function($scope){
             icon:"fa fa-codepen fa-2x",
             path:"https://codepen.io/yoggsoft/"
         }
-        
     };
 }]);
 
