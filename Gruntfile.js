@@ -1,101 +1,147 @@
 module.exports = function(grunt) {
-
+  
 	// Project configuration.
   grunt.initConfig({
-    path:{
-      js:{
+    path:
+    {
+      js:
+      {
         source:"prod/js",
         target:"deploy/js"
       },
-      sass:{
+      
+      sass:
+      {
         source:"prod/sass",
         deploy_target:"deploy/css",
         prod_target:"prod/css",
       },
-      html:{
-        templates:{
-          source:"prod/templates",
-          target:"deploy/public/templates"
+      
+      html:
+      {
+        source: 
+        {
+          index:"prod",
+          template: 'prod/templates'
         },
-        source:"prod/",
-        target:"deploy/"
+        target:
+        {
+          index: "",
+          template: 'deploy/templates'
+        }
       },
     },
-    pkg : grunt.file.readJSON('package.json'),
+    
+    pkg: grunt.file.readJSON('package.json'),
+    
     /*
     htmlmin Task 
     */
-    htmlmin : {
-      dist : {
-        options : {
-          removeComments : true,
-          collapseWhitespace : true
+    htmlmin:
+    {
+      dist:
+      {
+        options:
+        {
+          removeComments: true,
+          collapseWhitespace: true
         },
-        files : {
-          '<%= path.html.templates.target %>/*.html' : '<%= path.html.templates.source %>/*.html',
-          'index.html' : 'index-human.html'
-        }
-      }
+        files: 
+        [
+          {
+           '<%= path.html.target.index %>index.html' : '<%= path.html.source.index %>/index-human.html' 
+          },
+          {
+            expand: true,
+            cwd: '<%= path.html.source.template %>',
+            src: ['**/*.html'],
+            dest: '<%= path.html.target.template %>'
+          }
+        ],
+      },
     },
+    
     /*
     uglify Task 
     */
-    uglify : {
-    	options : {
+    uglify:
+    {
+    	options:
+    	{
     		manage:false,
     	},
-    	target : {
-    		files: {
+    	target:
+    	{
+    		files:
+    		{
           '<%= path.js.target %>/app.js' : 
           [
-            '<%= path.js.source %>/angular.min.js',
-            '<%= path.js.source %>/velocity.min.js',
-            '<%= path.js.source %>/resume_module.js',
-            '<%= path.js.source %>/resume.js'
+            '<%= path.js.source %>/*.js',
+            '<%= path.js.source %>/*.min.js',
           ]
     		}
     	}    	
     },
+    
     /*
     watch Task 
     */
-    watch: {
-      htmlmin:{
-        files: ['<%= path.html.templates.source %>/*html','*.html'],
+    watch:
+    {
+      htmlmin:
+      {
+        files: [
+          '<%= path.html.source.index %>*.html',
+          '<%= path.html.source.template %>/*.html'
+        ],
         tasks: ['htmlmin']
       },
-      uglify:{
-        files : ['<%= path.js.source %>/*.js','<%= path.js.source %>/**/*.js'],
+      uglify:
+      {
+        files : [
+          '<%= path.js.source %>/*.js',
+          '<%= path.js.source %>/**/*.js'
+        ],
         tasks : ['uglify']
       },
-      sass : {
+      sass:
+      {
         files : '<%= path.sass.source %>/*.scss',
         tasks : ['sass']
       }
     },
+    
     /*
     sass Task 
     */
-    sass : {
-      dev : {
-        options : {
-          style : 'expanded',
+    sass:
+    {
+      dev:
+      {
+        options: 
+        {
+          style: 'expanded',
           sourcemap:'none'
         },
-        files : {
+        files:
+        {
           '<%= path.sass.prod_target %>/main.css' : '<%= path.sass.source %>/main.scss',
         }
       },
-      dist : {
-        options : {
-          style : 'compressed',
-          sourcemap:'none'
+      dist:
+      {
+        options:
+        {
+          style: 'compressed',
+          sourcemap: 'none'
         },
-        files : {
+        files:
+        {
           '<%= path.sass.deploy_target %>/main.css' : '<%= path.sass.source %>/main.scss'
         }
       }
     }
+    
   });
   // Load the plugin that provides the "uglify" task
   grunt.loadNpmTasks('grunt-contrib-uglify');

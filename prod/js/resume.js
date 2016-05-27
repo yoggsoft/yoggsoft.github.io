@@ -25,11 +25,8 @@ resume.directive('container-left',['$scope',function($scope){
         restrict:'E',
         require:'^resumeContainer',
         replace:true,
-        templateUrl:'./template/leftContainerTemplate.html',
+        templateUrl:'./templates/leftContainerTemplate.html',
         controller:function(){
-            var icons = {
-                
-            };
         },
         link:function(scope,el,attr,ctrl){
             
@@ -54,17 +51,10 @@ resume.directive('resumeContainer',['$http',function($http){
                     data[i] = i;
                     console.log( data);
                 }
-                /*datajson.forEach(function(element,index,array){
-                    console.log(array +'['+index+'] = '+element);
-                });*/
-                // $scope.data = datajson; 
             };
             this.getData = function(){
                 return data;
             };
-            /*this.getAbout = function(){
-                return data[0][0];
-            };*/
         },
         link:function(scope,el,attr,resumeContainerCtrl){
             $http.get(attr.source).then(
@@ -177,7 +167,7 @@ resume.directive('collapsing-section',function(){
         restrict : "E",
         require : "^collapsingContainer",
         replace:true,
-        templateUrl:"app/templates/collapsingSectionTemplate.html",
+        templateUrl:"./templates/collapsingSectionTemplate.html",
         scope:{
             
         },
@@ -188,20 +178,3 @@ resume.directive('collapsing-section',function(){
         }
     };
 });
-// resume.directive('toggleButton',function(){
-    
-// });
-
-// resume.directive('item',function(){
-//     return {
-//         restrict:'E',
-        
-//     };
-// });
-
-// resume.directive('hidden',function(){
-//     return{
-//         restrict:"A",
-        
-//     };
-// });
