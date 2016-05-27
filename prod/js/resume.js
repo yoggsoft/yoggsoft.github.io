@@ -1,4 +1,7 @@
-/* global resume, Velocity */
+/* global angular, resume, Velocity */
+'use strict';
+var resume = angular.module('resume',[]);
+
 resume.directive('overlay',function(){
     return{
         restrict:'E',
@@ -7,32 +10,40 @@ resume.directive('overlay',function(){
         link:function(scope,el,attr,ctrl){
             var overlay = el[0];
             window.addEventListener('load',function(){
-                Velocity(
-                    overlay,
-                    "slideUp",
-                    "linear",
-                    {
-                        duration:1500
-                    }
-                );
+                Velocity(overlay,"slideUp","linear",{duration:1500});
             });
         }
     };
 });
 
-resume.directive('container-left',['$scope',function($scope){
+resume.directive('containerLeft',function(){
     return{
         restrict:'E',
         require:'^resumeContainer',
         replace:true,
-        templateUrl:'./templates/leftContainerTemplate.html',
+        templateUrl:'deploy/templates/containerLeftTemplate.html',
         controller:function(){
-        },
-        link:function(scope,el,attr,ctrl){
             
         },
+        link:function(scope,el,attr,ctrl){
+            console.log(ctrl.getData);
+        }
     };
-}]);
+});
+
+resume.directive('containerRight',function(){
+    return {
+        restrict: 'E',
+        require:"^resumeContainer",
+        templateUrl:'deploy/templates/containerLeftTemplate.html',
+        controller:function(){
+            
+        },
+        link:function(scope,el,attr,ctrl){
+            console.log(ctrl.getData);
+        }
+    };
+});
 
 resume.directive('resumeContainer',['$http',function($http){
     return{
@@ -45,15 +56,31 @@ resume.directive('resumeContainer',['$http',function($http){
         controller:function(){
             var data = data || {};
             this.parseData = function(datajson){
-                console.log(datajson[0]);
-                var len = datajson.length();
-                for (var i=0;i<len;i++){
-                    data[i] = i;
-                    console.log( data);
+                for (var a in datajson){
+                    var key = Object.keys(datajson[a]);
+                    data[key] = datajson[a];
                 }
             };
-            this.getData = function(){
+            this.getAllData = function(){
                 return data;
+            };
+            this.getContact = function(){
+                return data.Contact;
+            };
+            this.getAbout = function(){
+                return data.About;
+            };
+            this.getXP = function (){
+                return data.XP;
+            };
+            this.getSkills = function (){
+                return data.Skills;
+            };
+            this.getLanguages = function (){
+                return data.Languages;
+            };
+            this.getTrivia = function (){
+                return data.Trivia;
             };
         },
         link:function(scope,el,attr,resumeContainerCtrl){
@@ -62,6 +89,7 @@ resume.directive('resumeContainer',['$http',function($http){
                 function(response){
                     var res = response.data.info;
                     resumeContainerCtrl.parseData(res);
+                    scope.$broadcast('data-loaded',res);
                 },
                 // error
                 function(){

@@ -76,8 +76,8 @@ module.exports = function(grunt) {
     		{
           '<%= path.js.target %>/app.js' : 
           [
-            '<%= path.js.source %>/*.js',
             '<%= path.js.source %>/*.min.js',
+            '<%= path.js.source %>/*.js'
           ]
     		}
     	}    	
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
       htmlmin:
       {
         files: [
-          '<%= path.html.source.index %>*.html',
+          '<%= path.html.source.index %>/*.html',
           '<%= path.html.source.template %>/*.html'
         ],
         tasks: ['htmlmin']

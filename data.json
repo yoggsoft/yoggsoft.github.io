@@ -1,79 +1,117 @@
 {
-	"info": [
-	{
-		"About": "I'm cool"
-	}, {
-		"XP": [{
-			"company": "Google",
-			"role": "Creative ADs Support Specialist",
-			"period": "Jan 2016 - present",
-			"description": "html5 stuff",
-			"employer": "Cognizant"
-		}, {
-			"company": "YouTube",
-			"role": "YouTube Media Campaign Manager",
-			"period": "Feb 2015 - Dec 2015",
-			"description": "youtube stuff",
-			"employer": "Cognizant"
-		}, {
-			"company": "Google",
-			"role": "Technical Support Specialist",
-			"period": "Jul 2013 - Jan 2015",
-			"description": "cool rich media stuff",
-			"employer": "Cognizant"
-		}]
-	}, {
-		"Education": [{
-			"university": "Universidad Jose Antonio Paez",
-			"Major": "Computer Engineering Degree",
-			"period": "Jul 2013 - Jan 2015"
-		}]
-	}, {
-		"Skills": [
-			"", "", ""
-		]
-	}, {
-		"Languages": [
-		    {"label":"English"},
-		    {"label":"Spanish"},
-		    {"label":"Portuguese"},
-		    {"label":"German"},
-		    {"label":"French"}
-	    ]
-	}, {
-		"Trivia": [{
-			"Born": "Caracas",
-			"Nationalities": "Spain, Venezuela",
-			"Movie": "Titanic",
-			"Game": "Tomb Raider",
-			"Football Player": "Cristiano Ronaldo",
-			"Rockstar": "Bret Michaels",
-			"Fears": "Roaches and Little girl from 'The Exorcist'",
-			"Foot": "Arepas",
-			"TV Show": "The Simpsons"
-		}]
-	}, {
-		"Icons": [
+	"info": 
+	[
+		{
+			"About": "I'm cool"
+		}, 
+		{
+			"XP": 
+			[
+				{
+					"company": "Google",
+					"role": "Creative ADs Support Specialist",
+					"period": "Jan 2016 - present",
+					"description": "html5 stuff",
+					"employer": "Cognizant"
+				},
+				{
+					"company": "YouTube",
+					"role": "YouTube Media Campaign Manager",
+					"period": "Feb 2015 - Dec 2015",
+					"description": "youtube stuff",
+					"employer": "Cognizant"
+				},
+				{
+					"company": "Google",
+					"role": "Technical Support Specialist",
+					"period": "Jul 2013 - Jan 2015",
+					"description": "cool rich media stuff",
+					"employer": "Cognizant"
+				}
+			]
+		},
+		{
+			"Education": 
+			[
+				{
+					"university": "Universidad Jose Antonio Paez",
+					"Major": "Computer Engineering Degree",
+					"period": "Jul 2013 - Jan 2015"
+				}
+			]
+		},
+		{
+			"Skills":
+			[
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"Languages": 
+			[
+			    {"label": "English"},
+			    {"label": "Spanish"},
+			    {"label": "Portuguese"},
+			    {"label": "German"},
+			    {"label": "French"}
+		    ]
+	    },
+		{
+			"Trivia": 
 			{
-				"label" : "gmail",
-				"icon" : "fa fa-envelope-o fa-2x",
-				"path" : "mailto:yoggsoft@gmail.com"
-			},
-			{
-				"label" : "github",
-				"icon" : "fa fa-github fa-2x",
-				"path" : "https://www.github.com/yoggsoft"
-			},
-			{
-				"label" : "linkedin",
-				"icon" : "fa fa-linkedin fa-2x",
-				"path" : "https://ar.linkedin.com/in/querales"
-			},
-			{
-				"label" : "codepen",
-				"icon" : "fa fa-codepen fa-2x",
-				"path" : "https://codepen.io/yoggsoft/"
-			}
-		]
-	}]
+					"Born" : "Caracas",
+					"Nationalities" : "Spain, Venezuela",
+					"Movie": "Titanic",
+					"Game": "Tomb Raider",
+					"Football Player": "Cristiano Ronaldo",
+					"Rockstar": "Bret Michaels",
+					"Fears": "Roaches and Little girl from 'The Exorcist'",
+					"Foot": "Arepas",
+					"TV Show": "The Simpsons"
+				}
+			
+		},
+		{
+			"bio":
+			[
+				{
+					"Contact":
+					{
+						"name": "Manuel",
+						"lastName": "Reyes"
+						"mail": "",
+						"address": "",
+						"city": "Buenos Aires, Argentina"
+					}
+				},
+				{
+					"Icons": 
+					[
+						{
+							"label": "gmail",
+							"icon": "fa fa-envelope-o fa-2x",
+							"path": "mailto:yoggsoft@gmail.com"
+						},
+						{
+							"label": "github",
+							"icon": "fa fa-github fa-2x",
+							"path": "https://www.github.com/yoggsoft"
+						},
+						{
+							"label": "linkedin",
+							"icon": "fa fa-linkedin fa-2x",
+							"path": "https://ar.linkedin.com/in/querales"
+						},
+						{
+							"label": "codepen",
+							"icon": "fa fa-codepen fa-2x",
+							"path": "https://codepen.io/yoggsoft/"
+						}
+					]
+				}
+			]
+		}
+	]
 }
