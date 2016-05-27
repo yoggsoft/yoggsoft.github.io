@@ -27,7 +27,9 @@ resume.directive('container-left',['$scope',function($scope){
         replace:true,
         templateUrl:'./template/leftContainerTemplate.html',
         controller:function(){
-            /*this.icons = ;*/
+            var icons = {
+                
+            };
         },
         link:function(scope,el,attr,ctrl){
             

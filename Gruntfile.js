@@ -4,18 +4,22 @@ module.exports = function(grunt) {
   grunt.initConfig({
     path:{
       js:{
-        origin:"prod/js",
-        destiny:"deploy/js"
+        source:"prod/js",
+        target:"deploy/js"
       },
       sass:{
-        origin:"prod/sass",
-        deploy_destiny:"deploy/css",
-        prod_destiny:"prod/css",
-      }
-      // html:{
-      //   origin:"prod/js",
-      //   destiny:"deploy/js"
-      // },
+        source:"prod/sass",
+        deploy_target:"deploy/css",
+        prod_target:"prod/css",
+      },
+      html:{
+        templates:{
+          source:"prod/templates",
+          target:"deploy/public/templates"
+        },
+        source:"prod/",
+        target:"deploy/"
+      },
     },
     pkg : grunt.file.readJSON('package.json'),
     /*
@@ -28,6 +32,7 @@ module.exports = function(grunt) {
           collapseWhitespace : true
         },
         files : {
+          '<%= path.html.templates.target %>/*.html' : '<%= path.html.templates.source %>/*.html',
           'index.html' : 'index-human.html'
         }
       }
@@ -41,12 +46,12 @@ module.exports = function(grunt) {
     	},
     	target : {
     		files: {
-          '<%= path.js.destiny %>/app.js' : 
+          '<%= path.js.target %>/app.js' : 
           [
-            '<%= path.js.origin %>/angular.min.js',
-            '<%= path.js.origin %>/velocity.min.js',
-            '<%= path.js.origin %>/resume_module.js',
-            '<%= path.js.origin %>/resume.js'
+            '<%= path.js.source %>/angular.min.js',
+            '<%= path.js.source %>/velocity.min.js',
+            '<%= path.js.source %>/resume_module.js',
+            '<%= path.js.source %>/resume.js'
           ]
     		}
     	}    	
@@ -56,15 +61,15 @@ module.exports = function(grunt) {
     */
     watch: {
       htmlmin:{
-        files:'*.html',
+        files: ['<%= path.html.templates.source %>/*html','*.html'],
         tasks: ['htmlmin']
       },
       uglify:{
-        files : ['<%= path.js.origin %>/*.js','<%= path.js.origin %>/**/*.js'],
+        files : ['<%= path.js.source %>/*.js','<%= path.js.source %>/**/*.js'],
         tasks : ['uglify']
       },
       sass : {
-        files : '<%= path.sass.origin %>/*.scss',
+        files : '<%= path.sass.source %>/*.scss',
         tasks : ['sass']
       }
     },
@@ -78,7 +83,7 @@ module.exports = function(grunt) {
           sourcemap:'none'
         },
         files : {
-          '<%= path.sass.prod_destiny %>/main.css' : '<%= path.sass.origin %>/main.scss',
+          '<%= path.sass.prod_target %>/main.css' : '<%= path.sass.source %>/main.scss',
         }
       },
       dist : {
@@ -87,7 +92,7 @@ module.exports = function(grunt) {
           sourcemap:'none'
         },
         files : {
-          '<%= path.sass.deploy_destiny %>/main.css' : '<%= path.sass.origin %>/main.scss'
+          '<%= path.sass.deploy_target %>/main.css' : '<%= path.sass.source %>/main.scss'
         }
       }
     }
