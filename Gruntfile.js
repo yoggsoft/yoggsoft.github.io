@@ -30,6 +30,12 @@ module.exports = function(grunt) {
           template: 'deploy/templates'
         }
       },
+      
+      json:
+      {
+        source: "",
+        target:"deploy"
+      }
     },
     
     pkg: grunt.file.readJSON('package.json'),
@@ -37,9 +43,11 @@ module.exports = function(grunt) {
     /*
     htmlmin Task 
     */
-    'json-minify': {
+    minjson: {
       build: {
-        files: 'data.json'
+        files: { 
+          '<%= path.json.target %>/data.min.json' : 'data.json'
+        }
       }
     },
     
@@ -97,6 +105,11 @@ module.exports = function(grunt) {
     */
     watch:
     {
+      minjson:
+      {
+        files: ['<%= path.json.source%>/*.json'],
+        tasks:['minjson']
+      },
       htmlmin:
       {
         files: [
@@ -154,8 +167,8 @@ module.exports = function(grunt) {
   });
   // Load the plugin that provides the "uglify" task
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  // Load the plugin that provides the "jsonminify" task
-  grunt.loadNpmTasks('grunt-json-minify');
+  // Load the plugin that provides the "minjson" task
+  grunt.loadNpmTasks('grunt-minjson');
   // Load the plugin that provides the "htmlmin" task
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   // Load the plugin that provides the "sass" task

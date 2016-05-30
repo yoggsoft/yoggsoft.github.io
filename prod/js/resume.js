@@ -240,25 +240,26 @@ resume.directive('collapsing-section',function(){
     };
 });
 
-resume.directive('starIcons',function(){
+resume.directive('levelIcons',function(){
     return{
         restrict:"E",
-        require:"starIcons",
+        require:"levelIcons",
         templateUrl: 'deploy/templates/starExperienceTemplate.html',
         controller:['$scope',function($scope){
-            this.getStars = function(num){
+            this.getStars = function(num,ico){
                 var stars = [];
                 var pivot = num;
+                var icon = ico;
                 for (var i=0;i<5;i++){
-                    stars.push( (i<pivot)? 'star':'star-o' );
+                    stars.push( (i<pivot)? icon : icon+'-o' );
                 }
                 return stars;
             };
         }],
         link:function(scope,el,attr,ctrl){
-            scope.quant = ctrl.getStars(attr.num);
+            scope.quant = ctrl.getStars(attr.num,attr.icon);
             scope.$on('data_parsed',function(e){
-                scope.quant = ctrl.getStars(attr.num);
+                //scope.quant = ctrl.getStars(attr.num,attr.icon);
             });
         }
     };

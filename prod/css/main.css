@@ -302,6 +302,10 @@ ul {
   margin: 100px auto;
 }
 
+.iconspace {
+  padding: 0px 1px;
+}
+
 .tdright {
   text-align: right;
 }

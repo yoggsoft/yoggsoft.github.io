@@ -26,19 +26,27 @@
               <tr ng-repeat="e in techskills | orderBy:'-experience'">
                 <td class="tdright"><em>{{e.name}}</em> |</td>
                 <td>
-                  <star-icons num="{{e.experience}}"></star-icons>
+                  <level-icons icon="star" num="{{e.experience}}"></level-icons>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <small>years of experience</small>
       </section>
       <section>
         <h1>Languages</h1>
-        <ul class="skill-set">
-          <li ng-repeat="e in languages">{{e.label}}</li>
-        </ul>
+        <div>
+          <table>
+            <tbody>
+              <tr ng-repeat="e in languages | orderBy:'-experience'">
+                <td class="tdright"><em>{{e.label}}</em> |</td>
+                <td>
+                  <level-icons icon="comment" num="{{e.experience}}"></level-icons>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
       <section>
         <h1>Certifications & Awards</h1>
