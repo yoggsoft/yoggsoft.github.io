@@ -28,7 +28,43 @@
 					"period": "Jul 2013 - Jan 2015",
 					"description": "cool rich media stuff",
 					"employer": "Cognizant"
+				},
+				{
+					"company": "W3 Digital Agency",
+					"role": "Content Manager / Developer",
+					"period": "June 2013 - July 2013",
+					"description": "Team provide support creating digital content for CITI BANK online products worldwide.",
+					"employer": "W3 Digital Agency"
+				},
+				{
+					"company": "Wisboo.com",
+					"role": "Front-End Developer",
+					"period": "October 2012 - May 2013",
+					"description": "JS Developer of a 4-member team to build a large scale online product from the ground up. Making use of MVC patterns where I mostly took hands on the VIEW and CONTROLLER layers implementing many technologies PHP ,Javascript, WebGL, WebRTC, Yii Framework, Bootstrap, AJAX and jQuery to Achieve the first pre-release of the product.",
+					"employer": "Wisboo.com"
+				},
+				{
+					"company": "Verbaloop.com",
+					"role": "AS3 Developer",
+					"period": "October 2012 - February 2013",
+					"description": "Develop the 'Afasia' series an AS3 Videogame from scratch designed and dedicated to the treatment of aphasia patients. This software is currently for commercial use and supports PC, MAC and iOS 4+ published on AppStore.",
+					"employer": "Verbaloop.com"
+				},
+				{
+					"company": "Yoggsoft Studios",
+					"role": "Freelance Small Agency",
+					"period": "October 2012 - February 2013",
+					"description": "The job that paid my scholarship,Istarted running a digital agency that offered web based solutions to SMEs and acquaintance's Business. Part of my client list were located in Venezuela and Spain, and some of my clients were from Mexico and Argentina when I moved to Buenos Aires in 2012.",
+					"employer": "Freelance"
+				},
+				{
+					"company": "Evenpro C.A.",
+					"role": "Disney Live Interpreter",
+					"period": "June 2007 - August 2007",
+					"description": "Translate logistic and functional orders from U.S. Staff to locals building the show Disney Live - Winnie The Pooh.",
+					"employer": "Grupo Forum de Valencia."
 				}
+				
 			]
 		},
 		{
@@ -38,6 +74,11 @@
 					"university": "Universidad Jose Antonio Paez",
 					"Major": "Computer Engineering Degree",
 					"period": "Jul 2013 - Jan 2015"
+				},
+				{
+					"university": "Universidad Jose Antonio Paez - Thesis degree",
+					"Major": "Degree with Honors and Publication Mention - DESARROLLO DE SOFTWARE EDUCATIVO Y DIDÁCTICO PARA NIÑOS ENTRE PRIMERO Y SEXTO GRADO DE EDUCACIÓN BÁSICA BAJO PLATAFORMA WEB",
+					"period": "May 2010 - January 2011"
 				}
 			]
 		},
