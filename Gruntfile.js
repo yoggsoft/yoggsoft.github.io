@@ -37,6 +37,15 @@ module.exports = function(grunt) {
     /*
     htmlmin Task 
     */
+    'json-minify': {
+      build: {
+        files: 'data.json'
+      }
+    },
+    
+    /*
+    htmlmin Task 
+    */
     htmlmin:
     {
       dist:
@@ -145,6 +154,8 @@ module.exports = function(grunt) {
   });
   // Load the plugin that provides the "uglify" task
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  // Load the plugin that provides the "jsonminify" task
+  grunt.loadNpmTasks('grunt-json-minify');
   // Load the plugin that provides the "htmlmin" task
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   // Load the plugin that provides the "sass" task

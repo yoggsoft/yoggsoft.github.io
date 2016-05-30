@@ -275,7 +275,7 @@ ul {
   color: rgba(0, 0, 0, 0.75);
 }
 .inner section {
-  margin: 100px auto;
+  margin: 50px auto;
 }
 
 .outer {
@@ -300,6 +300,10 @@ ul {
 }
 .outer section {
   margin: 100px auto;
+}
+
+.tdright {
+  text-align: right;
 }
 
 /*#canvas{ */

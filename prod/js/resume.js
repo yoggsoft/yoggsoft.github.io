@@ -1,4 +1,4 @@
-/* global angular, resume, Velocity */
+/* global angular, Velocity */
 'use strict';
 var resume = angular.module('resume',[]);
 
@@ -16,17 +16,131 @@ resume.directive('overlay',function(){
     };
 });
 
+resume.directive('resumeContainer',['$http',function($http){
+    return{
+        restrict: "E",
+        transclude: true,
+        template: '<div class="wrapper clearfix">'+
+        '<data-ng-transclude></data-ng-transclude>'+
+        '</div>',
+        require: "resumeContainer",
+        controller: ['$scope',function($scope){
+            
+            /** PRIVATE DATA
+             * Collection of data from the JSON.
+             */
+            var data = data || {};
+            
+            /** PRIVATE VALIDATE AND PROVIDE
+             * Checks if the parameter requested exists in the DATA Returns an object with the requested parameter
+             * @param {Object} - the JSON data  to be mapped.
+             */
+            var validateAndProvide = function(e){
+                if(data.hasOwnProperty(e)){
+                    var res = data[e];
+                    return res;
+                }else{
+                    console.error("no property ",e);
+                }
+            };
+            
+            /** PUBLIC PARSE DATA
+             * Maps all JSON data available to underneath directives.
+             * @param {Object} - the JSON data  to be mapped.
+             */
+            this.parseData = function(datajson){
+                for (var a in datajson){
+                    for (var i in datajson[a]){
+                        var key = Object.keys(datajson[a]);
+                        data[key[0]] = datajson[a][i];
+                    }
+                }
+                // console.log(data);
+                $scope.$broadcast('data_parsed');
+            };
+            
+            /** PUBLIC GET ATTRIBUTES
+             * Returns an object with the parameters provided
+             * @param {String} or {Object} - parameter or parameters requested.
+             */
+            this.getAttribute = function(prop){
+                if(prop !== null && prop !== 'undefined')
+                {
+                    var res = res|| {};
+                    if(typeof prop === "object")
+                    {
+                        for (var i in prop)
+                        {
+                            res[prop[i]] = validateAndProvide(prop[i]);
+                        }
+                        return res;
+                    }
+                    else if(typeof prop === "string")
+                    {
+                        res[prop] = validateAndProvide(prop);
+                        return res;
+                    }
+                    else
+                    {
+                        console.error("string or object Expected, obtained: ",typeof prop);
+                    }
+                }
+                else
+                {
+                    console.error("Invalid Argument in",this);
+                }
+            };
+        }],
+        link:function(scope,el,attr,resumeContainerCtrl){
+            $http.get(attr.source).then(
+                // success
+                function(response){
+                    var res = response.data.info;
+                    resumeContainerCtrl.parseData(res);
+                    scope.$broadcast('data_loaded',res);
+                },
+                // error
+                function(){
+                    console.error('no data');
+                }
+            );
+        }
+    };
+}]);
+
 resume.directive('containerLeft',function(){
     return{
-        restrict:'E',
-        require:'^resumeContainer',
-        replace:true,
-        templateUrl:'deploy/templates/containerLeftTemplate.html',
-        controller:function(){
+        restrict: 'E',
+        require: ['^resumeContainer','containerLeft'],
+        replace: true,
+        templateUrl: 'deploy/templates/containerLeftTemplate.html',
+        controller: ['$scope',function($scope){
             
-        },
-        link:function(scope,el,attr,ctrl){
-            console.log(ctrl.getData);
+            /** PUBLIC SET SCOPE
+             * Maps json source to Scope
+             * @param {Object} - the JSON data mapped as object from parent controller.
+             */
+            this.setScope = function(e){
+                if( typeof e !== "undefined" && e !== null )
+                {
+                    for (var i in e)
+                    {
+                        $scope[i] = e[i];
+                    }
+                }
+                else
+                {
+                    console.error("wrong bio!");
+                }
+            };
+        }],
+        link: function(scope,el,attr,ctrl){
+            var resumeContainerCtrl = ctrl[0];
+            var containerLeftCtrl   = ctrl[1];
+            var func = resumeContainerCtrl.getAttribute;
+            scope.$on('data_parsed',function(e,res){
+                containerLeftCtrl.setScope(func(["contact","icons"]));
+            });
         }
     };
 });
@@ -34,134 +148,53 @@ resume.directive('containerLeft',function(){
 resume.directive('containerRight',function(){
     return {
         restrict: 'E',
-        require:"^resumeContainer",
-        templateUrl:'deploy/templates/containerLeftTemplate.html',
-        controller:function(){
-            
-        },
-        link:function(scope,el,attr,ctrl){
-            console.log(ctrl.getData);
+        require: ['^resumeContainer','containerRight'],
+        replace: true,
+        templateUrl: 'deploy/templates/containerRightTemplate.html',
+        controller: ['$scope',function($scope){
+            this.setLocalScope = function(e){
+                if( typeof e !== "undefined" && e !== null )
+                {
+                    for (var i in e)
+                    {
+                        $scope[i] = e[i];
+                    }
+                }
+                else
+                {
+                    console.error("wrong bio!");
+                }
+            }; 
+        }],
+        link: function(scope,el,attr,ctrl){
+            var resumeContainerCtrl = ctrl[0];
+            var containerRightCtrl = ctrl[1];
+            var func = resumeContainerCtrl.getAttribute;
+            scope.$on('data_parsed',function(e,res){
+                containerRightCtrl.setLocalScope(func(["about","xp","education","languages","techskills","certs","interests","trivia"]));
+            });
         }
     };
 });
 
-resume.directive('resumeContainer',['$http',function($http){
-    return{
-        restrict:"E",
-        transclude:true,
-        template:'<div class="wrapper clearfix">'+
-        '<data-ng-transclude></data-ng-transclude>'+
-        '</div>',
-        require:"resumeContainer",
-        controller:function(){
-            var data = data || {};
-            this.parseData = function(datajson){
-                for (var a in datajson){
-                    var key = Object.keys(datajson[a]);
-                    data[key] = datajson[a];
-                }
-            };
-            this.getAllData = function(){
-                return data;
-            };
-            this.getContact = function(){
-                return data.Contact;
-            };
-            this.getAbout = function(){
-                return data.About;
-            };
-            this.getXP = function (){
-                return data.XP;
-            };
-            this.getSkills = function (){
-                return data.Skills;
-            };
-            this.getLanguages = function (){
-                return data.Languages;
-            };
-            this.getTrivia = function (){
-                return data.Trivia;
-            };
-        },
-        link:function(scope,el,attr,resumeContainerCtrl){
-            $http.get(attr.source).then(
-                // success
-                function(response){
-                    var res = response.data.info;
-                    resumeContainerCtrl.parseData(res);
-                    scope.$broadcast('data-loaded',res);
-                },
-                // error
-                function(){
-                    console.log('no data');
-                }
-            );
+/*resume.service('setScopeService',function(){
+    this.parse = function(e){
+        if( typeof e !== "undefined" && e !== null )
+        {
+            var res = {};
+            for (var i in e){
+                res[i] = e[i];
+            }
+            // console.log(res);
+            return res;
         }
+        else
+        {
+            console.error('Invalid, null or undefined value ',e);
+        }    
     };
-}]);
-
-resume.controller('leftController',['$scope',function($scope){
-    this.icons = {
-        gmail:{
-            label:"gmail",
-            icon:"fa fa-envelope-o fa-2x",
-            path:"mailto:yoggsoft@gmail.com"
-        },
-        github:{
-            label:"github",
-            icon:"fa fa-github fa-2x",
-            path:"https://www.github.com/yoggsoft"
-        },
-        
-        linkedin:{
-            label:"linkedin",
-            icon:"fa fa-linkedin fa-2x",
-            path:"https://ar.linkedin.com/in/querales"
-        },
-        codepen:{
-            label:"codepen",
-            icon:"fa fa-codepen fa-2x",
-            path:"https://codepen.io/yoggsoft/"
-        }
-    };
-}]);
-
-resume.controller('rightController', ['$scope', function($scope) {
-    this.skills = {
-        techskills: {
-            label:"Technical Skills",
-            data:[
-                'HTML5',
-                'CSS3',
-                'SASS',
-                'AngularJS',
-                'Git',
-                'ActionScript',
-                'Javascript',
-                'Node',
-                'Grunt',
-                'jQuery',
-                'Rich Media',
-                'PHP',
-                'Wordpress'
-                ]
-        },
-        certs: {
-            label:"Certification & Awards",
-            data:['DoubleClick','Autodesk Maya','Google Web Designer']
-        },
-        languages: {
-            label:"Languages",
-            data:['Spanish','English','Portuguese','German','French']
-        },
-        interests: {
-            label:"Interests",
-            data:['Internet','Music','Videogames','Real Madrid','Technology','Development']
-        }
-    };
-}]);
-
-
+});
+*/
 resume.directive('collapsingContainer',['$http',function($http){
    return {
        restrict:"E",
@@ -202,6 +235,30 @@ resume.directive('collapsing-section',function(){
         controller:function($scope){
             $scope.$on('data-loaded',function(e,data){
                console.log('data available',data); 
+            });
+        }
+    };
+});
+
+resume.directive('starIcons',function(){
+    return{
+        restrict:"E",
+        require:"starIcons",
+        templateUrl: 'deploy/templates/starExperienceTemplate.html',
+        controller:['$scope',function($scope){
+            this.getStars = function(num){
+                var stars = [];
+                var pivot = num;
+                for (var i=0;i<5;i++){
+                    stars.push( (i<pivot)? 'star':'star-o' );
+                }
+                return stars;
+            };
+        }],
+        link:function(scope,el,attr,ctrl){
+            scope.quant = ctrl.getStars(attr.num);
+            scope.$on('data_parsed',function(e){
+                scope.quant = ctrl.getStars(attr.num);
             });
         }
     };

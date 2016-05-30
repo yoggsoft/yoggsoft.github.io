@@ -1,0 +1,211 @@
+{
+	"info": 
+	[
+		
+		{
+			"about": "I'm a spanish dude born and raised in Venezuela, living in Argentina working for worldwide clients. Cool, huh?"
+		},
+		{
+			"xp": 
+			[
+				{
+					"company": "Google",
+					"role": "Creative ADs Support Specialist",
+					"period": "Jan 2016 - present",
+					"description": "html5 stuff",
+					"employer": "Cognizant"
+				},
+				{
+					"company": "YouTube",
+					"role": "YouTube Media Campaign Manager",
+					"period": "Feb 2015 - Dec 2015",
+					"description": "youtube stuff",
+					"employer": "Cognizant"
+				},
+				{
+					"company": "Google",
+					"role": "Technical Support Specialist",
+					"period": "Jul 2013 - Jan 2015",
+					"description": "cool rich media stuff",
+					"employer": "Cognizant"
+				}
+			]
+		},
+		{
+			"education": 
+			[
+				{
+					"university": "Universidad Jose Antonio Paez",
+					"Major": "Computer Engineering Degree",
+					"period": "Jul 2013 - Jan 2015"
+				}
+			]
+		},
+		{
+			"languages": 
+			[
+			    {"label": "English"},
+			    {"label": "Spanish"},
+			    {"label": "Portuguese"},
+			    {"label": "German"},
+			    {"label": "French"}
+			]
+		},
+		{
+	    	"techskills":
+	    	[
+	    		{
+	    			"name":"HTML5",
+	    			"experience":"4"
+	    		},
+	    		{
+	    			"name":"SASS",
+	    			"experience":"3"
+	    		},
+	    		{
+	    			"name":"AngularJS",
+	    			"experience":"3"
+	    		},
+	    		{
+	    			"name":"Git",
+	    			"experience":"3"
+	    		},
+	    		{
+	    			"name":"ActionScript",
+	    			"experience":"4"
+	    		},
+	    		{
+	    			"name":"JavaScript",
+	    			"experience":"5"
+	    		},
+	    		{
+	    			"name":"Node",
+	    			"experience":"2"
+	    		},
+	    		{
+	    			"name":"Grunt",
+	    			"experience":"3"
+	    		},
+	    		{
+	    			"name":"Rich Media",
+	    			"experience":"5"
+	    		},
+	    		{
+	    			"name":"CSS3",
+	    			"experience":"4"
+	    		},
+	    		{
+	    			"name":"PHP",
+	    			"experience":"2"
+	    		},
+	    		{
+	    			"name":"Wordpress",
+	    			"experience":"4"
+	    		},
+	    		{
+	    			"name":"Python",
+	    			"experience":"2"
+	    		}
+    		]
+	    },
+	    {
+	    	"certs":
+	    	[
+	    		"DoubleClick",
+	    		"Autodesk Maya",
+	    		"Google Web Designer",
+	    		"Adobe Creative Suite",
+	    		"YouTube Masthead",
+	    		"RM Lightbox"
+    		]
+	    },
+	    {
+	    	"interests":
+	    	[
+	    		"Internet",
+	    		"Music",
+	    		"Videogames",
+	    		"Real Madrid",
+	    		"Technology",
+	    		"Development"
+    		]
+	    },
+		{
+			"trivia": 
+			[
+				{
+					"label":"Born",
+					"content":"Caracas"
+				},
+				{
+					"label":"Nationalities",
+					"content":"Spain, Venezuela"
+				},
+				{
+					"label":"Movie",
+					"content":"Titanic"
+				},
+				{
+					"label":"Videogame",
+					"content":"Tomb Raider"
+				},
+				{
+					"label":"Football player",
+					"content":"Cristiano Ronaldo"
+				},
+				{
+					"label":"Rockstar",
+					"content":"Bret Michaels"
+				},
+				{
+					"label":"Fears",
+					"content":"Roaches and the Exorcist's little girl"
+				},
+				{
+					"label":"Food",
+					"content":"Arepas"
+				},
+				{
+					"label":"TV Show",
+					"content":"The Simpsons"
+				}
+			]
+		},
+		{
+			"contact":
+			{
+				"name": "Manuel",
+				"lastName": "Reyes",
+				"mail": "",
+				"address": "",
+				"city": "Buenos Aires, Argentina",
+				"image": "deploy/img/mreyes_2013.jpg"
+			}
+		},
+		{
+			"icons": 
+			[
+				{
+					"label": "gmail",
+					"icon": "fa fa-envelope-o fa-2x",
+					"path": "mailto:yoggsoft@gmail.com"
+				},
+				{
+					"label": "github",
+					"icon": "fa fa-github fa-2x",
+					"path": "https://www.github.com/yoggsoft"
+				},
+				{
+					"label": "linkedin",
+					"icon": "fa fa-linkedin fa-2x",
+					"path": "https://ar.linkedin.com/in/querales"
+				},
+				{
+					"label": "codepen",
+					"icon": "fa fa-codepen fa-2x",
+					"path": "https://codepen.io/yoggsoft/"
+				}
+			]
+		}
+	]
+}
