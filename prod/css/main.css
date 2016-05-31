@@ -258,7 +258,7 @@ ul {
 }
 
 .inner {
-  margin: 0 auto;
+  margin: 10px auto;
   max-width: 900px;
   padding: 3em;
 }
@@ -273,6 +273,9 @@ ul {
 }
 .inner p i {
   color: rgba(0, 0, 0, 0.75);
+}
+.inner .item {
+  margin: 50px auto;
 }
 .inner section {
   margin: 50px auto;

@@ -6,16 +6,16 @@
       </section>
       <section>
         <h1>XP</h1>
-        <div ng-repeat="e in xp">
-          <p><i>{{e.company}}</i> {{e.role}}</p> <small>@ {{e.company}}</small> |  {{e.period}}</p>
+        <div class="item" ng-repeat="e in xp">
+          <p><i>{{e.role}}</i> @ {{e.company}}<small>{{e.period}}</small></p>
           <p>{{e.description}}</p>
         </div>
       </section>
       <section>
         <h1>Education</h1>
-        <div ng-repeat="e in education">
-          <p>{{e.period}} | <em>{{e.university}}</em></p>
-          <p>{{e.major}}</p>
+        <div class="item" ng-repeat="e in education">
+          <p>{{e.major}} | <em>{{e.university}}</em></p>
+          <p>{{e.period}}</p> 
         </div>
       </section>
       <section>

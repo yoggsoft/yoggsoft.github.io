@@ -43,9 +43,12 @@ module.exports = function(grunt) {
     /*
     htmlmin Task 
     */
-    minjson: {
-      build: {
-        files: { 
+    minjson: 
+    {
+      build: 
+      {
+        files: 
+        { 
           '<%= path.json.target %>/data.min.json' : 'data.json'
         }
       }

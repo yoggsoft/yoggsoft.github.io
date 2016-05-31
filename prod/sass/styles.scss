@@ -266,7 +266,7 @@ ul
 
 .inner
 {
-	margin: 0 auto;
+	margin: 10px auto;
 	max-width: 900px;
 	padding: 3em;
 	h1
@@ -284,6 +284,10 @@ ul
 		{
 			color: rgba(0,0,0,.75);
 		}
+	}
+	.item
+	{
+		margin: 50px auto;
 	}
 	section
 	{
