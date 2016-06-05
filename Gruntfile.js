@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         },
         target:
         {
-          index: "deploy",
+          index: "",
           template: 'deploy/templates'
         }
       },
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         files: 
         [
           {
-           '<%= path.html.target.index %>/index.html' : '<%= path.html.source.index %>/*.html' 
+           '<%= path.html.target.index %>index.html' : '<%= path.html.source.index %>/*.html' 
           },
           {
             expand: true,
