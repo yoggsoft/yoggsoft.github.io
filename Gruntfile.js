@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         },
         target:
         {
-          index: "",
+          index: "deploy",
           template: 'deploy/templates'
         }
       },
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         files: 
         [
           {
-           '<%= path.html.target.index %>index.html' : '<%= path.html.source.index %>/index-human.html' 
+           '<%= path.html.target.index %>/index.html' : '<%= path.html.source.index %>/*.html' 
           },
           {
             expand: true,
@@ -113,14 +113,6 @@ module.exports = function(grunt) {
         files: ['<%= path.json.source%>/*.json'],
         tasks:['minjson']
       },
-      htmlmin:
-      {
-        files: [
-          '<%= path.html.source.index %>/*.html',
-          '<%= path.html.source.template %>/*.html'
-        ],
-        tasks: ['htmlmin']
-      },
       uglify:
       {
         files : [
@@ -133,6 +125,14 @@ module.exports = function(grunt) {
       {
         files : '<%= path.sass.source %>/*.scss',
         tasks : ['sass']
+      },
+      htmlmin:
+      {
+        files: [
+          '<%= path.html.source.index %>/*.html',
+          '<%= path.html.source.template %>/*.html'
+        ],
+        tasks: ['htmlmin']
       }
     },
     
@@ -168,6 +168,8 @@ module.exports = function(grunt) {
     }
     
   });
+  
+  
   // Load the plugin that provides the "uglify" task
   grunt.loadNpmTasks('grunt-contrib-uglify');
   // Load the plugin that provides the "minjson" task
