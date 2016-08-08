@@ -3,15 +3,22 @@
 	[
 		
 		{
-			"about": "I'm a spanish dude born and raised in Venezuela, living in Argentina working for worldwide clients. Cool, huh?"
+			"about": "I'm a spanish dude born and raised in Venezuela, living in Brussels making the Web a better place. Cool, huh?"
 		},
 		{
 			"xp": 
 			[
 				{
+					"company": "WooRank",
+					"role": "Front-End Developer",
+					"period": "Aug 2016 - present",
+					"description": "Develop, improve and implement new functionalities.",
+					"employer": "WooRank"
+				},
+				{
 					"company": "Google",
 					"role": "Creative ADs Support Specialist",
-					"period": "Jan 2016 - present",
+					"period": "Jan 2016 - Jul 2016",
 					"description": "Support Technical consultancy on DoubleClick Dynamic creatives and Google Web Designer via phone, chat or email",
 					"employer": "Cognizant"
 				},
@@ -103,7 +110,7 @@
 			    },
 			    {
 			    	"label": "French",
-			    	"experience":"1"
+			    	"experience":"3"
 			    }
 			]
 		},
@@ -234,7 +241,7 @@
 				"lastName": "Reyes",
 				"mail": "",
 				"address": "",
-				"city": "Buenos Aires, Argentina",
+				"city": "Brussels, Belgium",
 				"image": "deploy/img/mreyes_2013.jpg"
 			}
 		},
