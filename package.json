@@ -21,5 +21,8 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-json-minify": "^0.4.0",
     "grunt-minjson": "^0.4.0"
+  },
+  "scripts": {
+    "npm-build": "grunt"
   }
 }

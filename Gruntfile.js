@@ -1,28 +1,28 @@
 module.exports = function(grunt) {
-  
+
 	// Project configuration.
   grunt.initConfig({
     path:
     {
       js:
       {
-        source:"prod/js",
+        source:"src/js",
         target:"deploy/js"
       },
-      
+
       sass:
       {
-        source:"prod/sass",
+        source:"src/sass",
         deploy_target:"deploy/css",
-        prod_target:"prod/css",
+        prod_target:"src/css",
       },
-      
+
       html:
       {
-        source: 
+        source:
         {
-          index:"prod",
-          template: 'prod/templates'
+          index:"src",
+          template: 'src/templates'
         },
         target:
         {
@@ -30,32 +30,32 @@ module.exports = function(grunt) {
           template: 'deploy/templates'
         }
       },
-      
+
       json:
       {
         source: "",
         target:"deploy"
       }
     },
-    
+
     pkg: grunt.file.readJSON('package.json'),
-    
+
     /*
-    htmlmin Task 
+    htmlmin Task
     */
-    minjson: 
+    minjson:
     {
-      build: 
+      build:
       {
-        files: 
-        { 
+        files:
+        {
           '<%= path.json.target %>/data.min.json' : 'data.json'
         }
       }
     },
-    
+
     /*
-    htmlmin Task 
+    htmlmin Task
     */
     htmlmin:
     {
@@ -66,10 +66,10 @@ module.exports = function(grunt) {
           removeComments: true,
           collapseWhitespace: true
         },
-        files: 
+        files:
         [
           {
-           '<%= path.html.target.index %>index.html' : '<%= path.html.source.index %>/*.html' 
+           '<%= path.html.target.index %>index.html' : '<%= path.html.source.index %>/*.html'
           },
           {
             expand: true,
@@ -80,9 +80,9 @@ module.exports = function(grunt) {
         ],
       },
     },
-    
+
     /*
-    uglify Task 
+    uglify Task
     */
     uglify:
     {
@@ -94,17 +94,17 @@ module.exports = function(grunt) {
     	{
     		files:
     		{
-          '<%= path.js.target %>/app.js' : 
+          '<%= path.js.target %>/app.js' :
           [
             '<%= path.js.source %>/*.min.js',
             '<%= path.js.source %>/*.js'
           ]
     		}
-    	}    	
+    	}
     },
-    
+
     /*
-    watch Task 
+    watch Task
     */
     watch:
     {
@@ -135,15 +135,15 @@ module.exports = function(grunt) {
         tasks: ['htmlmin']
       }
     },
-    
+
     /*
-    sass Task 
+    sass Task
     */
     sass:
     {
       dev:
       {
-        options: 
+        options:
         {
           style: 'expanded',
           sourcemap:'none'
@@ -166,10 +166,10 @@ module.exports = function(grunt) {
         }
       }
     }
-    
+
   });
-  
-  
+
+
   // Load the plugin that provides the "uglify" task
   grunt.loadNpmTasks('grunt-contrib-uglify');
   // Load the plugin that provides the "minjson" task
