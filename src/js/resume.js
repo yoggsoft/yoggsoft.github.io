@@ -1,6 +1,6 @@
 'use strict';
 
-// var angular = require('angular');
+var angular = require('angular');
 var resume = angular.module('resume',[]);
 
 resume.directive('overlay',function(){

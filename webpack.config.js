@@ -1,24 +1,48 @@
 var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: path.dirname('src/js/resume.js'),
+  entry: [
+    path.resolve('src/js/resume.js'),
+    path.resolve('src/styles/main.scss')
+  ],
   output: {
-      path: path.dirname('/'),
-      filename: "bundle.js"
+      path: path.resolve(__dirname),
+      filename: 'dist/bundle.js'
   },
   module: {
-  // loaders: [
-  //     { test: /\.css$/, loader: "style!css" }
-  // ]
-  loaders: [
+    loaders: [
       {
-        test: /\.es6$/,
-        exclude: /node_modules/,
-        loader: 'babel',
+        test: /\.js$/,
+        use: 'babel-loader',
         query: {
           presets: ['es2015']
         }
       }
+    ],
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: 'css-loader?importLoaders=1'
+        })
+      },
+      {
+        test: /\.(sass|scss)$/,
+        use: ExtractTextPlugin.extract(
+          [
+            'css-loader',
+            'sass-loader'
+          ]
+        )
+      }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'dist/style.css',
+      allChunks: true
+    })
+  ]
 };
