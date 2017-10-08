@@ -169,7 +169,6 @@ module.exports = function(grunt) {
 
   });
 
-
   // Load the plugin that provides the "uglify" task
   grunt.loadNpmTasks('grunt-contrib-uglify');
   // Load the plugin that provides the "minjson" task
@@ -182,5 +181,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   // Default task(s)
   grunt.registerTask('default', ['htmlmin']);
+
+  grunt.registerTask('build', [
+    'grunt-minjson',
+    'grunt-contrib-htmlmin',
+    'grunt-contrib-uglify',
+    'grunt-contrib-sass'
+  ]);
 
 };

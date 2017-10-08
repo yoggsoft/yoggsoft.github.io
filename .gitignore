@@ -1,3 +1,4 @@
 /node_modules
+/node_modules_docker
 /.sass-cache
 package-lock.json

@@ -1,5 +1,6 @@
-/* global angular, Velocity */
 'use strict';
+
+// var angular = require('angular');
 var resume = angular.module('resume',[]);
 
 resume.directive('overlay',function(){
@@ -10,7 +11,7 @@ resume.directive('overlay',function(){
         link:function(scope,el,attr,ctrl){
             var overlay = el[0];
             window.addEventListener('load',function(){
-                Velocity(overlay,"slideUp","linear",{duration:1500});
+              overlay.style.display = 'none';
             });
         }
     };
@@ -25,12 +26,12 @@ resume.directive('resumeContainer',['$http',function($http){
         '</div>',
         require: "resumeContainer",
         controller: ['$scope',function($scope){
-            
+
             /** PRIVATE DATA
              * Collection of data from the JSON.
              */
             var data = data || {};
-            
+
             /** PRIVATE VALIDATE AND PROVIDE
              * Checks if the parameter requested exists in the DATA Returns an object with the requested parameter
              * @param {Object} - the JSON data  to be mapped.
@@ -43,7 +44,7 @@ resume.directive('resumeContainer',['$http',function($http){
                     console.error("no property ",e);
                 }
             };
-            
+
             /** PUBLIC PARSE DATA
              * Maps all JSON data available to underneath directives.
              * @param {Object} - the JSON data  to be mapped.
@@ -58,7 +59,7 @@ resume.directive('resumeContainer',['$http',function($http){
                 // console.log(data);
                 $scope.$broadcast('data_parsed');
             };
-            
+
             /** PUBLIC GET ATTRIBUTES
              * Returns an object with the parameters provided
              * @param {String} or {Object} - parameter or parameters requested.
@@ -113,9 +114,9 @@ resume.directive('containerLeft',function(){
         restrict: 'E',
         require: ['^resumeContainer','containerLeft'],
         replace: true,
-        templateUrl: 'deploy/templates/containerLeftTemplate.html',
+        templateUrl: './src/templates/containerLeftTemplate.html',
         controller: ['$scope',function($scope){
-            
+
             /** PUBLIC SET SCOPE
              * Maps json source to Scope
              * @param {Object} - the JSON data mapped as object from parent controller.
@@ -150,7 +151,7 @@ resume.directive('containerRight',function(){
         restrict: 'E',
         require: ['^resumeContainer','containerRight'],
         replace: true,
-        templateUrl: 'deploy/templates/containerRightTemplate.html',
+        templateUrl: './src/templates/containerRightTemplate.html',
         controller: ['$scope',function($scope){
             this.setLocalScope = function(e){
                 if( typeof e !== "undefined" && e !== null )
@@ -164,7 +165,7 @@ resume.directive('containerRight',function(){
                 {
                     console.error("wrong bio!");
                 }
-            }; 
+            };
         }],
         link: function(scope,el,attr,ctrl){
             var resumeContainerCtrl = ctrl[0];
@@ -177,24 +178,6 @@ resume.directive('containerRight',function(){
     };
 });
 
-/*resume.service('setScopeService',function(){
-    this.parse = function(e){
-        if( typeof e !== "undefined" && e !== null )
-        {
-            var res = {};
-            for (var i in e){
-                res[i] = e[i];
-            }
-            // console.log(res);
-            return res;
-        }
-        else
-        {
-            console.error('Invalid, null or undefined value ',e);
-        }    
-    };
-});
-*/
 resume.directive('collapsingContainer',['$http',function($http){
    return {
        restrict:"E",
@@ -204,22 +187,13 @@ resume.directive('collapsingContainer',['$http',function($http){
            this.addItem = function(item){
                info.push(item);
            };
-           
+
            this.data = this.data || {};
            this.maxItems = 0;
        },
        link:function(scope,el,attr,collapsingContainerCtrl){
         collapsingContainerCtrl.maxItems = attr.max;
-        // $http.get(attr.source)
-        // .then(function(response){
-        //   collapsingContainerCtrl.data = response.data;
-        //   scope.$broadcast('data-loaded',collapsingContainerCtrl.data);
-        // },
-        // function(){
-        //   console.error('ups... no data!');
-        // });
        },
-       
    };
 }]);
 
@@ -228,13 +202,13 @@ resume.directive('collapsing-section',function(){
         restrict : "E",
         require : "^collapsingContainer",
         replace:true,
-        templateUrl:"./templates/collapsingSectionTemplate.html",
+        templateUrl:"./src/templates/collapsingSectionTemplate.html",
         scope:{
-            
+
         },
         controller:function($scope){
             $scope.$on('data-loaded',function(e,data){
-               console.log('data available',data); 
+               console.log('data available',data);
             });
         }
     };
@@ -244,7 +218,7 @@ resume.directive('levelIcons',function(){
     return{
         restrict:"E",
         require:"levelIcons",
-        templateUrl: 'deploy/templates/starExperienceTemplate.html',
+        templateUrl: './src/templates/starExperienceTemplate.html',
         controller:['$scope',function($scope){
             this.getStars = function(num,ico){
                 var stars = [];
@@ -258,9 +232,6 @@ resume.directive('levelIcons',function(){
         }],
         link:function(scope,el,attr,ctrl){
             scope.quant = ctrl.getStars(attr.num,attr.icon);
-            scope.$on('data_parsed',function(e){
-                //scope.quant = ctrl.getStars(attr.num,attr.icon);
-            });
         }
     };
 });

@@ -5,7 +5,7 @@ ENV APP_NAME yoggsoft
 WORKDIR /var/www
 
 # install build tools
-RUN npm install
+RUN npm install --global karma karma-cli
 
 # copy the project
 ADD ./package.json /var/www/package.json

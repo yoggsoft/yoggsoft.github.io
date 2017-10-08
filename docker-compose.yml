@@ -1,10 +1,9 @@
 web:
   build: .
-  command: "npm run npm-build"
-  tty: true
+  command: "npm run dev"
   ports:
     - "8080:3005"
   volumes:
     - ./src:/var/www/src
     - ./package.json:/var/www/package.json
-    - ./Gruntfile.js:/var/www/Gruntfile.js
+    - './node_modules_docker:/opt/node_modules'
