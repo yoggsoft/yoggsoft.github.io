@@ -1,12 +1,12 @@
 @mixin breakpoint($size: $screen-lg, $reverse: false) {
   @if ($reverse) {
-    @media screen and (max-width: #{$size}) {
+    @media screen and (min-width: #{$size}) {
       @content;
     }
   }
 
   @else {
-    @media screen and (min-width: #{$size}) {
+    @media screen and (max-width: #{$size}) {
       @content;
     }
   }
