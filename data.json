@@ -247,6 +247,16 @@
 					"label": "codepen",
 					"icon": "fa fa-codepen fa-2x",
 					"path": "https://codepen.io/yoggsoft/"
+				},
+				{
+					"label": "twitter",
+					"icon": "fa fa-twitter fa-2x",
+					"path": "https://twitter.com/koopaquerales"
+				},
+				{
+					"label": "soundcloud",
+					"icon": "fa fa-soundcloud fa-2x",
+					"path": "soundcloud.com/koopaquerales"
 				}
 			]
 		}
