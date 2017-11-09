@@ -6,6 +6,10 @@
 
 $fa-font-path: "~font-awesome/fonts";
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 100%;
 }
@@ -74,11 +78,11 @@ ul {
     color: white;
     display: inline-block;
     list-style: none;
-    margin: 8px 10px 0 0;
-    padding: 10px 5px 0;
+    margin: 8px;
+    padding: 10px;
     max-width: 169px;
     min-width: 36px;
-    height: 30px;
+    min-height: 30px;
     text-align: center;
     overflow: hidden;
 

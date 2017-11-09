@@ -2,11 +2,11 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@cycle/core.svg)]()
 [![Dependency Status](https://david-dm.org/boennemann/badges.svg)](https://david-dm.org/boennemann/badges)
 
+![Yoggsoft](./yoggsoft.png)
 
 # Manuel Reyes resume
 
 Simple AngularJS app to display professional experience.
-
 
 ## Setup
 - Pull repository
