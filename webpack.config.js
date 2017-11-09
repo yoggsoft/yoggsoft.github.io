@@ -1,5 +1,4 @@
 var path = require('path');
-var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
@@ -8,8 +7,8 @@ module.exports = {
     path.resolve('src/styles/main.scss')
   ],
   output: {
-      path: path.resolve(__dirname),
-      filename: 'dist/bundle.js'
+    path: path.resolve(__dirname),
+    filename: 'dist/bundle.js'
   },
   module: {
     loaders: [

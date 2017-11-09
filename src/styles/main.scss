@@ -1,6 +1,9 @@
+@charset "UTF-8";
+
 @import 'utils/variables';
 @import 'utils/mixins';
 @import "~font-awesome/scss/font-awesome";
+
 $fa-font-path: "~font-awesome/fonts";
 
 html {
@@ -87,7 +90,8 @@ ul {
 
 .clearfix {
   &::after {
-    content: " "; // Older browser do not support empty content
+    // Older browser do not support empty content
+    content: " ";
     visibility: hidden;
     display: block;
     height: 0;
