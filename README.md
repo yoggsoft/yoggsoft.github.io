@@ -14,6 +14,7 @@ Simple AngularJS app to display professional experience.
 
 ```bash
 $ npm install
+$ npm run build
 ```
 
 ##
