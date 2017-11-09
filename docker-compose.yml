@@ -3,12 +3,14 @@ version: "2"
 services:
   node:
     build: .
-    command: "npm run build"
-    tty: true
+    command: "npm run dev"
     ports:
-      - "8080:3005"
+      - "8080:8080"
     volumes:
-      - ./src:/var/www/src
-      - ./:/var/www/
-      - ./package.json:/var/www/package.json
-      - ./node_modules:/opt/node_modules
+      - ./src:/opt/app/src
+      - ./dist:/opt/app/dist
+      - ./index.html:/opt/app/index.html
+      - ./data.json:/opt/app/data.json
+      - ./images:/opt/app/images
+      - ./package.json:/opt/app/package.json
+      - ./webpack.config.js:/opt/app/webpack.config.js
