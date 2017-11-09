@@ -1,11 +1,14 @@
-node:
-  build: .
-  command: "npm run build"
-  tty: true
-  ports:
-    - "8080:3005"
-  volumes:
-    - ./src:/var/www/src
-    - ./:/var/www/
-    - ./package.json:/var/www/package.json
-    - './node_modules:/opt/node_modules'
+version: "2"
+
+services:
+  node:
+    build: .
+    command: "npm run build"
+    tty: true
+    ports:
+      - "8080:3005"
+    volumes:
+      - ./src:/var/www/src
+      - ./:/var/www/
+      - ./package.json:/var/www/package.json
+      - ./node_modules:/opt/node_modules

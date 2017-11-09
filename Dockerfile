@@ -1,19 +1,16 @@
-FROM node:7.5
+FROM node:7.7.2-alpine
 
 ENV APP_NAME yoggsoft
+
+RUN mkdir -p /var/www
+
 WORKDIR /var/www
 
-# install build tools
-RUN npm install --global
+RUN npm install --quiet
 
-# copy the project
 ADD ./package.json /var/www/package.json
 RUN npm install
 
 ADD . /var/www
 
-# install packages and build
 RUN npm run build
-
-
-CMD ["node", ".", "--production"]
