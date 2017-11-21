@@ -1,10 +1,10 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 @import 'utils/variables';
 @import 'utils/mixins';
-@import "~font-awesome/scss/font-awesome";
 
-$fa-font-path: "~font-awesome/fonts";
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
 
 * {
   box-sizing: border-box;

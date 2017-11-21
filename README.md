@@ -13,8 +13,8 @@ Simple AngularJS app to display professional experience.
 - Run:
 
 ```bash
-$ npm install
-$ npm run build
+$ docker-compose build
+$ docker-compose up
 ```
 
 ##

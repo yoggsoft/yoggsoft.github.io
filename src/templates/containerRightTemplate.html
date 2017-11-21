@@ -1,25 +1,25 @@
 <div class="right">
     <div class="inner">
       <section>
-        <h1>About</h1>
+        <h2>About</h2>
         <p>{{about}}</p>
       </section>
       <section>
-        <h1>XP</h1>
+        <h2>XP</h2>
         <div class="item" ng-repeat="e in xp">
           <p><i>{{e.role}}</i> @ {{e.company}} <small>{{e.period}}</small></p>
           <p>{{e.description}}</p>
         </div>
       </section>
       <section>
-        <h1>Education</h1>
+        <h2>Education</h2>
         <div class="item" ng-repeat="e in education">
           <p>{{e.major}} | <em>{{e.university}}</em></p>
           <p>{{e.period}}</p>
         </div>
       </section>
       <section>
-        <h1>Technical Skills</h1>
+        <h2>Technical Skills</h2>
         <div>
           <table>
             <tbody>
@@ -34,7 +34,7 @@
         </div>
       </section>
       <section>
-        <h1>Languages</h1>
+        <h2>Languages</h2>
         <div>
           <table>
             <tbody>
@@ -49,20 +49,20 @@
         </div>
       </section>
       <section>
-        <h1>Certifications & Awards</h1>
+        <h2>Certifications & Awards</h2>
         <ul class="skill-set">
           <li ng-repeat="e in certs">{{e}}</li>
         </ul>
       </section>
       <section>
-        <h1>Personal Interests</h1>
+        <h2>Personal Interests</h2>
         <ul class="skill-set">
           <li ng-repeat="e in interests">{{e}}</li>
         </ul>
       </section>
 
       <section>
-        <h1>Trivia</h1>
+        <h2>Trivia</h2>
         <div>
           <p ng-repeat="e in trivia">{{e.label}} | <em>{{e.content}}</em></p>
         </div>
