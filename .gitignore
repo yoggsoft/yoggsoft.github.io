@@ -1,7 +1,5 @@
-/node_modules
-/node_modules_docker
-
-/.sass-cache
-
-package-lock.json
-npm-debug.log
+.sass-cache/
+.jekyll-metadata
+node_modules
+.vscode
+_site/

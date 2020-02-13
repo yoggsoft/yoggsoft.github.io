@@ -1,0 +1,24 @@
+<div id="particles-js">
+  <div class="header">
+      <h1 id="site-title" class="page-title display-type-logo text-fit">
+        <a href="/home">
+          <span class="outer" data-max-font-size="49">
+            <span class="inner">
+              <img src="../assets/logo.png" alt="Koopa Querales">
+            </span>
+          </span>
+        </a>
+      </h1>
+      <div class="header-icons">
+        {% for network in site.social %}
+          <a aria-label="{{ network.title }}" href="{{ network.url }}" target="_blank">
+              <i class="icon fa fa-{{ network.title }}" aria-hidden="true"></i>
+          </a>
+        {% endfor %}
+      </div>
+      <div class="header-links">
+        <!-- <a class="link" href="#about" data-scroll>About Me</a> -->
+      </div>
+  </div>
+  <!-- <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a> -->
+</div>

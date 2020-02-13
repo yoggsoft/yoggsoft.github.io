@@ -1,0 +1,35 @@
+baseurl: "" # the subpath of your site, e.g. /blog
+
+title: Koopa Querales
+description: Koopa Querales page
+username: Koopa Querales
+
+user_description: >
+  Venezuelan/Spanish singer-songwriter. His original compositions and music style is heavily influenced by Rock and Punk from 80's to 00's.
+user_title: Singer-Songwriter
+email: koopaquerales.music@gmail.com
+
+exclude: ['package.json', 'src' , 'node_modules']
+
+# Google-analytics
+google-analytics:
+  id: "UA-158360392-1"
+
+# Social media and links
+social:
+  - title: spotify
+    url: https://open.spotify.com/artist/26SaZCIwAtd9q93VhE7y60
+  - title: instagram
+    url: https://www.instagram.com/koopaquerales
+  - title: facebook
+    url: https://www.facebook.com/koopaquerales
+  - title: amazon
+    url: https://music.amazon.com/search/koopa+querales
+  - title: apple
+    url: https://itunes.apple.com/be/artist/koopa-querales/1423135500
+  - title: google
+    url: https://play.google.com/store/music/artist/Koopa_Querales?id=Ahcnhnktgwajxjblxn2ulnd3c4a
+  - title: youtube
+    url: https://www.youtube.com/channel/UCpPgTq_EJx86tU84A1YkW1g
+  - title: soundcloud
+    url: https://soundcloud.com/koopaquerales
