@@ -1,24 +1,15 @@
-<div id="particles-js">
+<div class='header-bg'>
+  <div id="particles-js"></div>
   <div class="header">
-      <h1 id="site-title" class="page-title display-type-logo text-fit">
-        <a href="/home">
-          <span class="outer" data-max-font-size="49">
-            <span class="inner">
-              <img src="../assets/logo.png" alt="Koopa Querales">
-            </span>
-          </span>
+    <h1 id="site-title" class="page-title display-type-logo text-fit">
+      <img class="logo" src="../assets/logo.png" alt="Koopa Querales">
+    </h1>
+    <div class="header-icons">
+      {% for store in site.stores %}
+        <a aria-label="{{ store.title }}" href="{{ store.url }}" target="_blank">
+          <i class="icon fa fa-{{ store.title }}" aria-hidden="true"></i>
         </a>
-      </h1>
-      <div class="header-icons">
-        {% for network in site.social %}
-          <a aria-label="{{ network.title }}" href="{{ network.url }}" target="_blank">
-              <i class="icon fa fa-{{ network.title }}" aria-hidden="true"></i>
-          </a>
-        {% endfor %}
-      </div>
-      <div class="header-links">
-        <!-- <a class="link" href="#about" data-scroll>About Me</a> -->
-      </div>
+      {% endfor %}
+    </div>
   </div>
-  <!-- <a class="down" href="#about" data-scroll><i class="icon fa fa-chevron-down" aria-hidden="true"></i></a> -->
 </div>
