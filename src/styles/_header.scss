@@ -9,7 +9,8 @@
   .particles-js-canvas-el {
     height: 100vh !important;
     background-image: url('/assets/bg.jpg');
-    background-color: 'red';
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
