@@ -1,5 +1,6 @@
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "koopaquerales.com"
+imgBasePath: "../assets/img"
 title: Koopa Querales - Official Website
 description: Venezuelan/Spanish singer-songwriter with a music style heavily influenced by the 80's and 00's.
 username: Koopa Querales

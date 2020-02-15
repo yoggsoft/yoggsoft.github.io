@@ -17,7 +17,7 @@
 
 .header-bg {
   background-repeat: no-repeat;
-  background-image: url('/assets/bg.jpg');
+  background-image: url('#{$imgBasePath}/header-bg.jpg');
   background-size: cover;
   background-position: 50% 50%;
   filter: sepia(.5) contrast(1.4);
