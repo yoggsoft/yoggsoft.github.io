@@ -4,13 +4,14 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
+  margin-top: 20px;
 
   &.otherside {
-    background-image: url('/assets/tos.jpg');
+    background-image: url('#{$imgBasePath}/tos-bg.jpg');
   }
 
   &.isgb {
-    background-image: url('/assets/isgb.jpg');
+    background-image: url('#{$imgBasePath}/isgb-bg.jpg');
   }
 }
 
