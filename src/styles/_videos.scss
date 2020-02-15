@@ -1,12 +1,17 @@
-#about {
+.video {
   background-color: #main;
   font-size: 120%;
   background-repeat: no-repeat;
-  background-image: url('/assets/bg2.jpg');
   background-size: cover;
   background-position: 50% 50%;
-  mix-blend-mode: luminosity;
-  filter: sepia(.5) contrast(1.4);
+
+  &.otherside {
+    background-image: url('/assets/tos.jpg');
+  }
+
+  &.isgb {
+    background-image: url('/assets/isgb.jpg');
+  }
 }
 
 .container {
